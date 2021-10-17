@@ -25,12 +25,12 @@ Frontend - Angular
 PostgreSQL/MongoDB
 
 ## Makiety interfejsu
+![New project](https://github.com/Aldill/freelancerNotebook/blob/main/New%20project%20screen.png "New project")
+![Welcome 1](https://github.com/Aldill/freelancerNotebook/blob/main/Welcome%20screen%20%E2%80%93%201.png "Welcome 1")
+![Welcome](https://github.com/Aldill/freelancerNotebook/blob/main/Welcome%20screen.png "Welcome")
 ![Log in - mobile](https://github.com/Aldill/freelancerNotebook/blob/main/Mobile%20log%20in%20screen.png "Log in - mobile")
 ![Logged in - mobile](https://github.com/Aldill/freelancerNotebook/blob/main/Mobile%20logged%20in%20menu%20screen.png "Logged in - mobile")
-![Welcome - mobile](https://github.com/Aldill/freelancerNotebook/blob/main/Mobile%20welcome%20screen.png"Welcome - mobile")
-![New project](https://github.com/Aldill/freelancerNotebook/blob/main/New%20project%20screen.png "New project")
-![Welcome 1](https://github.com/Aldill/freelancerNotebook/blob/main/Welcome%20screen%20%E2%80%93%201.png"Welcome 1")
-![Welcome](https://github.com/Aldill/freelancerNotebook/blob/main/Welcome%20screen.png"Welcome")
+![Welcome - mobile](https://github.com/Aldill/freelancerNotebook/blob/main/Mobile%20welcome%20screen.png "Welcome - mobile")
 
 ## Skład zespołu
 
