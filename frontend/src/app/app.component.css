@@ -1,0 +1,6 @@
+mat-card{
+
+    top:-100px;
+    right: 300px;
+    transform: scaleX(-1);
+}
