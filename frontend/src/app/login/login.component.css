@@ -10,8 +10,12 @@
 
 }
 
-mat-card{
+.mat-flat-button{
+    background-color:#ABD483;
+}
 
+mat-card{
+    background-color:#5E7A41;
     top:-100px;
     right: 300px;
     transform: scaleX(-1);

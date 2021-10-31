@@ -1,6 +1,24 @@
-.image{
-    height:100%; 
-    background: url('../../img/planting a tree.svg') no-repeat center center fixed ;
+.mat-toolbar{
+    background-color:#ABD483;
+    overflow: hidden;
+    height: 1cm;
+}
+
+.mat-sidenav{
+    background-color:#6666CC;
+    width: 4cm;
+}
+
+
+.mat-flat-button{
+    background-color: #799c53;
+    width: 4cm;
+}
+
+.image{ 
+    height:93.8%;
+
+    background: url('../../img/sitting on a couch.svg') no-repeat center center fixed ;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
