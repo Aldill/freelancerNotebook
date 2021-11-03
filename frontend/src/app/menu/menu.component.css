@@ -2,28 +2,46 @@
     background-color: #799c53;
     overflow: hidden;
     height: 1cm;
+    
 }
 
 .mat-sidenav{
     background-color:#6666CC;
     width: 4cm;
+
 }
 
 
 .mat-flat-button{
     background-color: #799c53;
-    width: 4cm;
+    color: white;
+    
+
 }
 
 .image{ 
     height:93.8%;
+    
 
-    background: url('../../img/sitting on a couch.svg') no-repeat center center fixed ;
+    background: url('../../img/girl with laptop.jpg') no-repeat center center fixed ;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
   
-    
 
+
+}
+
+
+mat-card{
+    background-color: rgba(255, 217, 0, 0.295);
+
+    top:  -120px;
+    right: -430px;
+
+}
+textarea{
+    font-size:xx-large;
+    text-align: center;
 }

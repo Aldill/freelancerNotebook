@@ -1,0 +1,12 @@
+<mat-card fxFlex = "25">
+   
+ 
+    <a routerLink = "/timerfs"> <mat-icon>fullscreen</mat-icon></a>
+    <mat-icon>volume_off</mat-icon>
+    <p id = 'time'>00:00:{{timeLeft}}</p> 
+    <button mat-flat-button id = "nav" (click)='startTimer()'>Start Timer</button>
+    <button mat-flat-button id = "nav" (click)='pauseTimer()'>Pause</button>
+    <button mat-flat-button id = "nav" routerLink = "/home">Save & Return</button>
+    
+
+</mat-card>

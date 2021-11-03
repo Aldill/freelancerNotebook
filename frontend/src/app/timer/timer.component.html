@@ -1,0 +1,40 @@
+
+   <mat-toolbar  [ngClass]="[otherStyle]" >
+</mat-toolbar>
+<mat-sidenav-container [hasBackdrop]="false" class="image" >
+
+        <mat-sidenav #sidenav opened="true" >
+        <mat-nav-list  [ngClass]="[otherStyle]" >
+        <a mat-list-item><button mat-flat-button type ="submit"  routerLink = "/account">ACCOUNT</button></a>
+        <a mat-list-item routerLink = "/new-entry">New entry</a>
+        <a mat-list-item>New project</a>
+        <a mat-list-item>Manage projects</a>
+        <a mat-list-item>Settings</a>
+        <a mat-list-item>Send feedback</a>
+        <a mat-list-item>About</a>
+        </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+<mat-sidenav-content>
+    <div  fxLayoutAlign="center center"  fxFlexFill class="main-div">
+        <mat-card  [ngClass]="[cardStyle]" > 
+            
+            <a *ngIf="this.isFullscreenExitVisible" (click)="this.isFullscreenVisible = true" (click)="sidenav.toggle()" (click) = "closeFullscreen()" (click)="this.isFullscreenExitVisible = false"> <mat-icon>fullscreen_exit</mat-icon></a>
+            <a *ngIf="this.isFullscreenVisible"(click)="this.isFullscreenExitVisible = true"(click)="sidenav.toggle()" (click) = "openFullscreen()"(click)="this.isFullscreenVisible = false"> <mat-icon>fullscreen</mat-icon></a>
+            <a><mat-icon>volume_off</mat-icon></a>
+            <p  [ngClass]="[timeStyle]">00:00:{{timeLeft}}</p> 
+            <button mat-flat-button [ngClass]="[navStyle]"(click)='startTimer()'>Start Timer</button>
+            <button mat-flat-button [ngClass]="[navStyle]"(click)='pauseTimer()'>Pause</button>
+            <button mat-flat-button [ngClass]="[navStyle]" routerLink = "/home">Save & Return</button>
+            
+      
+        </mat-card>
+        
+            </div>
+        
+
+
+
+</mat-sidenav-content>
+
+
