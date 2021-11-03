@@ -21,7 +21,7 @@ import { MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import { TimerComponent } from './timer/timer.component';
-import { TimerFullscreenComponent } from './timer-fullscreen/timer-fullscreen.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,8 +30,7 @@ import { TimerFullscreenComponent } from './timer-fullscreen/timer-fullscreen.co
     SignupComponent,
     NewEntryComponent,
     TimerComponent,
-    TimerFullscreenComponent,
-  ],
+     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
