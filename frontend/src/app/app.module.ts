@@ -21,6 +21,23 @@ import { MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import { TimerComponent } from './timer/timer.component';
+import { NewProjectComponent } from './new-project/new-project.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { CurrencyMaskInputMode, NgxCurrencyModule } from "ngx-currency";
+
+
+export const customCurrencyMaskConfig = {
+  align: 'left',
+  allowNegative: true,
+  allowZero: true,
+  decimal: '.',
+  precision: 2,
+  prefix: '$',
+  suffix: '',
+  thousands: ',',
+  nullable: true,
+  inputMode: CurrencyMaskInputMode.NATURAL
+};
 
 @NgModule({
   declarations: [
@@ -30,6 +47,7 @@ import { TimerComponent } from './timer/timer.component';
     SignupComponent,
     NewEntryComponent,
     TimerComponent,
+    NewProjectComponent,
      ],
   imports: [
     BrowserModule,
@@ -46,7 +64,9 @@ import { TimerComponent } from './timer/timer.component';
     MatIconModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatStepperModule,
+    NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

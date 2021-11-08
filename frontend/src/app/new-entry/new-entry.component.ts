@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-entry.component.css']
 })
 export class NewEntryComponent implements OnInit {
-
+  myRouterLink='/home'
   constructor() { }
 
   ngOnInit(): void {

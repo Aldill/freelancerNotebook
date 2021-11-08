@@ -36,13 +36,13 @@
        <section class="example-section">
             <label class="example-margin"></label>
             <mat-radio-group>
-              <mat-radio-button class="example-margin" ng-show="!showForm" value="after">Timed entry</mat-radio-button>
-              <mat-radio-button class="example-margin" value="before">Non-timed entry</mat-radio-button>
+              <mat-radio-button class="example-margin" (click)="myRouterLink='/timer'" ng-show="!showForm" value="after">Timed entry</mat-radio-button>
+              <mat-radio-button class="example-margin" (click)="myRouterLink='/home'" value="before">Non-timed entry</mat-radio-button>
             </mat-radio-group>
           </section>
 
        
-        <button mat-flat-button type ="submit" color = "accent" routerLink = "/timer">
+        <button mat-flat-button type ="submit" [routerLink]="[myRouterLink]" color = "accent" routerLink = "/timer">
             <mat-icon>arrow_forward</mat-icon>
 
             

@@ -1,0 +1,62 @@
+.mat-toolbar{
+    background-color: #799c53;
+    overflow: hidden;
+    height: 1cm;
+}
+
+.mat-sidenav{
+    background-color:#6666CC;
+    width: 4cm;
+}
+
+
+.mat-flat-button{
+    background-color: #799c53;
+    color: white;
+
+
+}
+#forward{
+    width: 100%
+
+}
+
+#back{
+    width: 43%;
+    margin: 10px;
+
+}
+
+.image{ 
+    height:93.8%;
+
+    background: url('../../img/girl with laptop.jpg') no-repeat center center fixed ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  
+
+
+}
+mat-form-field {
+
+    width: 100%;
+  }
+
+  ::ng-deep .mat-horizontal-stepper-header-container {
+    display: none !important;
+  }
+
+mat-card{
+    padding: 0px;
+    top:  -85px;
+    right: -430px;
+
+}
+mat-stepper{
+    padding-top: 15px;
+    background-color:#6666CC;
+
+
+}
