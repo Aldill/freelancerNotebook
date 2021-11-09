@@ -27,6 +27,7 @@ import { CurrencyMaskInputMode, NgxCurrencyModule } from "ngx-currency";
 import { ManageProjectsComponent } from './manage-projects/manage-projects.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
 
 export const customCurrencyMaskConfig = {
   align: 'left',
@@ -51,6 +52,7 @@ export const customCurrencyMaskConfig = {
     TimerComponent,
     NewProjectComponent,
     ManageProjectsComponent,
+    ProjectDetailsComponent,
      ],
   imports: [
     BrowserModule,

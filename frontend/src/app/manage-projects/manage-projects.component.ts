@@ -13,4 +13,8 @@ export class ManageProjectsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  togglePanel() {
+      this.panelOpenState = !this.panelOpenState
+  }
+
 }

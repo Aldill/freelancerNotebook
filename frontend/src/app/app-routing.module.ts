@@ -7,6 +7,7 @@ import { NewEntryComponent } from './new-entry/new-entry.component';
 import { TimerComponent } from './timer/timer.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { ManageProjectsComponent } from './manage-projects/manage-projects.component';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
 const routes: Routes = [
 {path:"",component:LoginComponent},
 {path:"home",component:MenuComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
 {path:"new-entry",component:NewEntryComponent},
 {path:"timer",component:TimerComponent},
 {path: "new-project", component: NewProjectComponent},
-{path: "manage-projects", component: ManageProjectsComponent}
+{path: "manage-projects", component: ManageProjectsComponent},
+{path: "project-details", component: ProjectDetailsComponent},
 ];
 
 @NgModule({

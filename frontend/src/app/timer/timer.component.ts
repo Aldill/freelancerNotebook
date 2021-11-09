@@ -8,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class TimerComponent implements OnInit {
 
   constructor() { }
-  timeLeft: number = 60;
+  seconds: number = 0;
+  seconds_zero: any = 0;
+  minutes_zero: any = 0;
+  hours_zero: any = 0;
+  minutes: number = 5;
+  hours: number = 0;
   interval: any;
   elem: any;
 
@@ -26,10 +31,32 @@ export class TimerComponent implements OnInit {
 
   startTimer() {
     this.interval = setInterval(() => {
-      if(this.timeLeft > 0) {
-        this.timeLeft--;
-      } else {
-        this.timeLeft = 60;
+
+      
+      if(this.seconds > 0) {
+        this.seconds--;
+      } else if (this.minutes > 0) {
+        this.minutes --;
+        this.seconds = 59;
+      }
+      else  if (this.hours > 0) {
+        this.hours --;
+        this.minutes = 59;
+      }
+      if(this.seconds >= 10){
+        this.seconds_zero = ""
+      }else{
+        this.seconds_zero = 0
+      }
+      if(this.minutes >= 10){
+        this.minutes_zero = ""
+      }else{
+        this.minutes_zero = 0
+      }
+      if(this.hours >= 10){
+        this.hours_zero = ""
+      }else{
+        this.hours_zero = 0
       }
     },1000)
   }

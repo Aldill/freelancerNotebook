@@ -22,7 +22,7 @@
             <a *ngIf="this.isFullscreenExitVisible" (click)="this.isFullscreenVisible = true" (click)="sidenav.toggle()" (click) = "closeFullscreen()" (click)="this.isFullscreenExitVisible = false"> <mat-icon>fullscreen_exit</mat-icon></a>
             <a *ngIf="this.isFullscreenVisible"(click)="this.isFullscreenExitVisible = true"(click)="sidenav.toggle()" (click) = "openFullscreen()"(click)="this.isFullscreenVisible = false"> <mat-icon>fullscreen</mat-icon></a>
             <a><mat-icon>volume_off</mat-icon></a>
-            <p  [ngClass]="[timeStyle]">00:00:{{timeLeft}}</p> 
+            <p  [ngClass]="[timeStyle]">{{hours_zero}}{{hours}}:{{minutes_zero}}{{minutes}}:{{seconds_zero}}{{seconds}}</p> 
             <button mat-flat-button [ngClass]="[navStyle]"(click)='startTimer()'>Start Timer</button>
             <button mat-flat-button [ngClass]="[navStyle]"(click)='pauseTimer()'>Pause</button>
             <button mat-flat-button [ngClass]="[navStyle]" routerLink = "/home">Save & Return</button>
