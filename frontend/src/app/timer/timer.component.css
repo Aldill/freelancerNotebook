@@ -44,14 +44,14 @@ margin : 0cm;
 }
 
   .btn-default {
-    background-color:hsl(240, 50%, 60%);
+    background: url('../../img/4009727.jpg') no-repeat center center fixed ;
  
     top:  -120px;
     right: -430px;
   }
   
   .btn-change {
-    background-color:hsl(240, 50%, 60%);
+    background: url('../../img/4009727.jpg') no-repeat center center fixed ;
     top:  0px;
     right: 0px;
     width: 100%;
@@ -64,17 +64,17 @@ margin : 0cm;
   
   .other-change {
     height: 1.2cm;
-background-color:hsl(240, 50%, 60%);
+    background: url('../../img/4009727.jpg') no-repeat center center fixed ;
   } 
   .time-default {
-    font-size: 60px;
+    font-size: 70px;
     margin-top: 0.7cm;
     margin-bottom: 0.5cm;
     text-align: center;
   }
   
   .time-change {
-    font-size: 160px;
+    font-size: 240px;
     margin-top: 5cm;
     margin-bottom: 5cm;
     text-align: center;
@@ -87,6 +87,10 @@ background-color:hsl(240, 50%, 60%);
 
     
 
+}
+.mat-icon{
+  font-size: xx-large;
+  padding-left: 2px;
 }
 .nav-change{
     background-color: #799c53;

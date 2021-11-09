@@ -10,6 +10,10 @@
     width: 4cm;
 
 }
+::ng-deep .menu {
+    background-color: #799c53; 
+    margin-left: 10px;
+  }
 
 
 .mat-flat-button{

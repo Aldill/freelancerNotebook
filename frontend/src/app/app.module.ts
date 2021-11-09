@@ -24,7 +24,9 @@ import { TimerComponent } from './timer/timer.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { CurrencyMaskInputMode, NgxCurrencyModule } from "ngx-currency";
-
+import { ManageProjectsComponent } from './manage-projects/manage-projects.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 export const customCurrencyMaskConfig = {
   align: 'left',
@@ -48,6 +50,7 @@ export const customCurrencyMaskConfig = {
     NewEntryComponent,
     TimerComponent,
     NewProjectComponent,
+    ManageProjectsComponent,
      ],
   imports: [
     BrowserModule,
@@ -66,7 +69,9 @@ export const customCurrencyMaskConfig = {
     MatCheckboxModule,
     MatRadioModule,
     MatStepperModule,
-    NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
+    NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
+    MatMenuModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
