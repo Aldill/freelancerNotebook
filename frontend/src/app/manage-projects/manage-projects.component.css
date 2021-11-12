@@ -59,6 +59,10 @@
     background-color: rgba(255, 217, 0, 0.767);
 
   }
+  mat-paginator{
+    background-color: #799c53;
+    padding: 0px;
+  }
 mat-card{
     width: 29cm;
     background-color: transparent;

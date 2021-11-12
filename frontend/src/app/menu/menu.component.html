@@ -10,8 +10,19 @@
 <a mat-list-item  routerLink = "/manage-projects" >Manage projects</a>
 
 
-<a mat-list-item>Settings</a>
+<a mat-list-item  [matMenuTriggerFor]="menu" >Settings</a>
+
+<mat-menu class ="menu" #menu="matMenu" xPosition="after">
+    <button mat-menu-item routerLink = "/settings">App settings</button>
+    <button mat-menu-item routerLink = "/account-settings">Account settings</button>
+  </mat-menu>
+
+
+
 <a mat-list-item>Send feedback</a>
+
+
+
 <a mat-list-item>About</a>
 </mat-nav-list>
 
@@ -23,8 +34,9 @@
             <form   id = "form" fxLayout="column" >
 
         <mat-form-field >
-            <textarea readonly matInput placeholder="Tim Ferriss" formControlName="message" cdkTextareaAutosize
-            cdkAutosizeMinRows="3">“Focus on being productive instead of busy”</textarea>
+    
+            <textarea readonly matInput placeholder="Tim Ferriss" id = "textarea" formControlName="message" cdkTextareaAutosize
+            cdkAutosizeMinRows="3" value = "Focus on being productive instead of busy"></textarea>
             </mat-form-field>
      
         

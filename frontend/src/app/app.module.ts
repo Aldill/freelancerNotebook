@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -28,7 +28,12 @@ import { ManageProjectsComponent } from './manage-projects/manage-projects.compo
 import {MatMenuModule} from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { SettingsComponent } from './settings/settings.component';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 export const customCurrencyMaskConfig = {
   align: 'left',
   allowNegative: true,
@@ -53,6 +58,8 @@ export const customCurrencyMaskConfig = {
     NewProjectComponent,
     ManageProjectsComponent,
     ProjectDetailsComponent,
+    SettingsComponent,
+    AccountSettingsComponent,
      ],
   imports: [
     BrowserModule,
@@ -73,7 +80,12 @@ export const customCurrencyMaskConfig = {
     MatStepperModule,
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
     MatMenuModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatPaginatorModule,
+    MatSnackBarModule,
+    MatChipsModule,
+    MatTooltipModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
