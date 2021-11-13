@@ -8,63 +8,62 @@ Aplikacja umożliwia przechowywanie, organizację oraz śledzenie postępu tworz
 
 ## Funkcjonalności
 
-##### RWD
-
+##### RWD 
+(Julia)
 - dopasowanie widoku strony do trzech rozdzielczości
   - mobilnej
   - desktopowej
 
 ##### Rejestracja użytkownika
 
-- backend
-
+- backend (Arkadiusz i Mikołaj)
   - endpoint rest POST
   - query mongoDB z zapisaniem użytkownika
   - sprawdzenie czy dany email/login jest zajęty
   - obsługa błędów
 
-- front
+- front (Julia)
   - walidacja danych
   - przygotowanie widoku
-  - podpięcie serwisu
+  - podpięcie serwisu (Mikołaj)
   - obsługa błędów
   - routing
 
 ##### Logowanie użytkownika
 
-- backend
+- backend (Arkadiusz i Mikołaj)
 
   - endpoint rest POST
   - query mongoDB z sprawdzeniem czy użytkownik istnieje
   - obsługa błędów
   - zapisywanie sesji
 
-- front
+- front (Julia)
   - walidacja danych
   - przygotowanie widoku
-  - podpięcie serwisu
+  - podpięcie serwisu (Mikołaj)
   - obsługa błędów
   - routing
 
 ##### Timer
 
-- front
+- front (Julia)
 
-  - wysyłanie zapytania post w momencie zakończenia wyliczania
+  - wysyłanie zapytania post w momencie zakończenia wyliczania (Mikołaj)
   - przygotowanie widoku
   - dodanie routingu
 
-- backend
+- backend (Arkadiusz i Mikołaj)
   - zapis wpisu (entry jak w przypadku dodania entry z palca)
 
 ##### Inteligentne liczenie zapłaty za przepracowane godziny
 
-- backend
+- backend (Arkadiusz i Mikołaj)
   - zapytanie do bazy mongo i wyliczenie przepracowanych godzin \* stawka zapisana w bazie
 
 ##### Śledzenie projektu
 
-- backend
+- backend (Arkadiusz i Mikołaj)
 
   - wystawienie restowego GET /project/{id}
   - wystawienie restowego GET dla wszystkich projektów /project
@@ -73,57 +72,57 @@ Aplikacja umożliwia przechowywanie, organizację oraz śledzenie postępu tworz
   - obsługa zmiany danych w projekcie put /project/{id}
   - dane z bazy danych mongoDB
 
-- front
+- front (Julia)
   - przygotowanie widoku dla jednego projektu
   - przygotowanie widoku dla listy projektów
   - obsługa widoku braku projektów
   - widok nowego projektu
   - widok edycji projektu
   - modal obsługujący usuwanie projektu
-  - podpięcie serwisów
+  - podpięcie serwisów (Mikołaj)
   - routing
 
 ##### Dodawanie wpisów (entries)
 
-- backend
+- backend (Arkadiusz i Mikołaj)
 
   - obsługa dodawania wpisu POST /entry/{id}
   - obsługa usuwania projektu DELETE /entry/{id}
   - obsługa zmiany danych w projekcie put /entry/{id}
   - dane z bazy danych mongoDB
 
-- front
+- front (Julia)
+
   - widok dodawania wpisu
   - zapytanie GET po wszystkie projekty (dropdown menu) /project
   - walidacja wprowadzonych danych
-  - spięcie z serwisem
+  - spięcie z serwisem (Mikołaj)
   - routing
 
 ##### Ustawienia
 
-- backend
+- backend (Arkadiusz i Mikołaj)
 
   - obsługa edycji użytkownika PUT user
   - obsługa usunięcia użytkownika DELETE user
   - dane z bazy danych mongoDB
 
-- front
+- front (Julia)
+
   - widok danych użytkownika
-  - spięcie z serwisem
+  - spięcie z serwisem (Mikołaj)
   - button usunięcia użytkownika
   - routing
 
 ## Harmonogram prac
 
-- 10/10/2021 - organizacja grupy, wybór tematu projektu
+- 21/11/2021 - finalizacja modeli danych w aplikacji + przygotowanie widoków HTMLowych 
 
-- 17/10/2021 - ustalenie założeń wstępnych, metod implementacji
+- 01/12/2021 - konfiguracja połączenia backendu z bazą dancych 
 
-- 30/10/2021 - makiety, schemat funkcyjny, schemat bazy danych
+- 01/12/2021 - przygotowanie interfesju użytkownika
 
-- 13/11/2021 -
-
-- 27/11/2021 -
+- 01/01/2022 - RWD + logowanie/rejestracja i dodawanie entries
 
 - 30/01/2022 - wstępny plan zakończenia prac
 
