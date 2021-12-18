@@ -1,7 +1,7 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace MongoProj.Models
+namespace FreelancerNotebook.Models
 {
     public class Client
     {
