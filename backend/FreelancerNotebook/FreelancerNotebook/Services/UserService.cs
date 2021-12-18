@@ -1,9 +1,9 @@
-using MongoProj.Models;
+using FreelancerNotebook.Models;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MongoProj.Services
+namespace FreelancerNotebook.Services
 {
     public class UserService
     {

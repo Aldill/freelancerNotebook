@@ -1,9 +1,9 @@
-using MongoProj.Models;
-using MongoProj.Services;
+using FreelancerNotebook.Models;
+using FreelancerNotebook.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace MongoProj.Controllers
+namespace FreelancerNotebook.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,4 +1,4 @@
-namespace MongoProj.Models
+namespace FreelancerNotebook.Models
 {
     public class MongoDatabaseSettings : IMongoDatabaseSettings
     {
