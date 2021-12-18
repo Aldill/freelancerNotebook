@@ -1,0 +1,74 @@
+using MongoProj.Models;
+using MongoProj.Services;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+
+namespace MongoProj.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EntriesController : ControllerBase
+    {
+        private readonly EntryService _entryService;
+
+        public EntriesController(EntryService entryService)
+        {
+            _entryService = entryService;
+        }
+
+        [HttpGet]
+        public ActionResult<List<Entry>> Get() =>
+            _entryService.Get();
+
+        [HttpGet("{id:length(24)}", Name = "GetEntry")]
+        public ActionResult<Entry> Get(string id)
+        {
+            var entry = _entryService.Get(id);
+
+            if (entry == null)
+            {
+                return NotFound();
+            }
+
+            return entry;
+        }
+
+        [HttpPost]
+        public ActionResult<Entry> Create(Entry entry)
+        {
+            _entryService.Create(entry);
+
+            return CreatedAtRoute("GetEntry", new { id = entry.id.ToString() }, entry);
+        }
+
+        [HttpPut("{id:length(24)}")]
+        public IActionResult Update(string id, Entry entryIn)
+        {
+            var entry = _entryService.Get(id);
+
+            if (entry == null)
+            {
+                return NotFound();
+            }
+
+            _entryService.Update(id, entryIn);
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id:length(24)}")]
+        public IActionResult Delete(string id)
+        {
+            var entry = _entryService.Get(id);
+
+            if (entry == null)
+            {
+                return NotFound();
+            }
+
+            _entryService.Remove(entry.id);
+
+            return NoContent();
+        }
+    }
+}
