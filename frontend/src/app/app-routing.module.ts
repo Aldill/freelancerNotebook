@@ -10,6 +10,8 @@ import { ManageProjectsComponent } from './manage-projects/manage-projects.compo
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ChangeUsernameComponent } from './change-username/change-username.component';
 
 const routes: Routes = [
 {path:"",component:LoginComponent},
@@ -22,7 +24,8 @@ const routes: Routes = [
 {path: "project-details", component: ProjectDetailsComponent},
 {path: "settings", component: SettingsComponent},
 {path: "account-settings", component: AccountSettingsComponent},
-
+{path: "change-password", component: ChangePasswordComponent},
+{path: "change-username", component: ChangeUsernameComponent}
 ];
 
 @NgModule({

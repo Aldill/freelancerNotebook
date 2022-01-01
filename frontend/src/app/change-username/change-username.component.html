@@ -1,5 +1,4 @@
-
-   <mat-toolbar>
+<mat-toolbar>
     <button mat-flat-button (click)="sidenav.toggle()" ><mat-icon>menu</mat-icon></button>
 </mat-toolbar>
 <mat-sidenav-container [hasBackdrop]="false" class="image">
@@ -33,22 +32,14 @@
         <mat-card fxFlex = "25">
             
             <form   id = "form" fxLayout="column"  >
-                <button  routerLink = "/change-username" mat-flat-button  color = "accent" >
-                    Change username           
-                </button>    
-
-                <button mat-flat-button  routerLink = "/change-password" color = "accent" >
-                     Change password           
-                 </button>
-
-                <button mat-flat-button id ="danger-zone"  color = "accent" >
-                   Reset all progress          
-                 </button>
-
-                    <button mat-flat-button id ="danger-zone"  color = "accent" >
-                       Delete account           
-                    </button>
-            
+                <mat-form-field color = "accent">
+                    <input matInput type="password" placeholder="Current password" >
+                    </mat-form-field>
+        
+                    <mat-form-field color = "accent">
+                        <input matInput type="text" placeholder="New username" >
+                        </mat-form-field>
+       
                 <button mat-flat-button type ="submit"  color = "accent" routerLink = "/home">
                     <mat-icon>save</mat-icon>            
 </button>

@@ -38,7 +38,7 @@
 }
 .mat-expansion-panel{   
     background-color:#6666CC;
-    width: 28cm;
+    width: 98%;
     padding: 10px;
     margin: 10px;
 
@@ -71,4 +71,60 @@ mat-card{
     top:  0px;
     right: -80px;
 
+}
+@media only screen and (max-width: 600px) {
+  mat-card{
+      width:90%;
+      top:  0px;
+      right: 0px;
+  
+  }
+  .mat-expansion-panel{   
+    background-color:#6666CC;
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+
+}
+mat-paginator{
+height: 1cm;
+}
+.details{
+  width: 0px;
+  right: 25px;
+
+}
+.edit{
+  width: 0px;
+  right: 25px;
+    
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+  mat-card{
+    width:95%;
+      top:  0px;
+      right: 0px;
+  
+  }
+  .mat-expansion-panel{   
+    background-color:#6666CC;
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+
+}
+mat-paginator{
+  height: 1cm;
+  }
+  .details{
+    width: 0px;
+    right: 25px;
+  
+  }
+  .edit{
+visibility: hidden;
+  
+  }
 }

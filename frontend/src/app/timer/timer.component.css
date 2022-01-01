@@ -58,6 +58,56 @@ margin : 0cm;
     height:95.65%;
   } 
 
+  @media only screen and (max-width: 600px) {
+
+    .image{ 
+      height:93.8%;
+      background-color:hsl(240, 50%, 60%);
+      background: url('../../img/4009727.jpg') no-repeat center center fixed ;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    
+  }
+    .btn-default {
+      background: url('../../img/4009727.jpg') no-repeat center center fixed ;
+   
+      top:  0px;
+      right: 0px;
+    }
+    
+    .btn-change {
+      background: url('../../img/4009727.jpg') no-repeat center center fixed ;
+      top:  0px;
+      right: 0px;
+      width: 100%;
+      height:95.65%;
+    } 
+
+    .mat-icon{
+      visibility: hidden;
+    }
+
+  }
+
+  @media only screen and (max-width: 1025px) {
+    .btn-default {
+      background: url('../../img/4009727.jpg') no-repeat center center fixed ;
+   
+      top:  0px;
+      right: 0px;
+    }
+    
+    .btn-change {
+      background: url('../../img/4009727.jpg') no-repeat center center fixed ;
+      top:  0px;
+      right: 0px;
+      width: 100%;
+      height:95.65%;
+    } 
+  }
+  
   .other-default {
     visibility:visible;
   }

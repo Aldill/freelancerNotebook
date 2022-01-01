@@ -36,13 +36,33 @@
     border:1px solid gray;
     max-width: unset !important;
    }
-mat-card{
+
+   mat-card{
     background-color:#6666CC;
-    
+    fill-rule: "25";
     top:  -100px;
     right: -430px;
-
 }
+@media only screen and (max-width: 600px) {
+    mat-card{
+
+        fill-rule: "90";
+        top:  auto;
+        right: auto;
+    
+    }
+  }
+
+  @media only screen and (max-width: 1025px) {
+    mat-card{
+  
+        fill-rule: "100";
+        top:  auto;
+        right: auto;
+    
+    }
+  }
+
 
 .mat-radio-button ~ .mat-radio-button {
     margin-left: 60px;

@@ -26,6 +26,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { CurrencyMaskInputMode, NgxCurrencyModule } from "ngx-currency";
 import { ManageProjectsComponent } from './manage-projects/manage-projects.component';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -34,6 +35,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ChangeUsernameComponent } from './change-username/change-username.component';
 export const customCurrencyMaskConfig = {
   align: 'left',
   allowNegative: true,
@@ -60,6 +63,8 @@ export const customCurrencyMaskConfig = {
     ProjectDetailsComponent,
     SettingsComponent,
     AccountSettingsComponent,
+    ChangePasswordComponent,
+    ChangeUsernameComponent,
      ],
   imports: [
     BrowserModule,
@@ -85,7 +90,8 @@ export const customCurrencyMaskConfig = {
     MatSnackBarModule,
     MatChipsModule,
     MatTooltipModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
