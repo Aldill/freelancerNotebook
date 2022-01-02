@@ -6,7 +6,7 @@ namespace FreelancerNotebook.Models
     public class User
     {    
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string id {get;set;}
         public string mail { get; set; }
         public bool isAdmin { get; set; }   

@@ -1,20 +1,20 @@
 using FreelancerNotebook.Models;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace FreelancerNotebook.Services
 {
-    public class ClientService
+    public class ClientService : IClientService
     {
         private readonly IMongoCollection<Client> _client;
 
-        public ClientService(IMongoDatabaseSettings settings)
+       
+        public ClientService(IOptions<DatabaseSettings> settings)
         {
-            var client = new MongoClient(settings.ConnectionString);
-            var database = client.GetDatabase(settings.DatabaseName);
+            var client = new MongoClient(settings.Value.ConnectionString);
+            var database = client.GetDatabase(settings.Value.DatabaseName);
 
-            _client = database.GetCollection<Client>(settings.ClientCollectionName);
+            _client = database.GetCollection<Client>(settings.Value.ClientCollectionName);
         }
 
         public List<Client> Get() =>
@@ -37,5 +37,18 @@ namespace FreelancerNotebook.Services
 
         public void Remove(string id) => 
             _client.DeleteOne(client => client.id == id);
+    }
+
+    public interface IClientService
+    {
+        List<Client> Get();
+        Client Get(string id);
+
+        Client Create(Client client);
+
+        void Update(string id, Client client);
+
+        void Remove(string id);
+
     }
 }
