@@ -8,7 +8,17 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class NewEntryComponent implements OnInit {
   myRouterLink='/home'
-  constructor() { }
+  
+  w = window.innerWidth;
+  disableClose:boolean;
+  constructor() { 
+    if (this.w > 450) {
+      this.disableClose=true;
+    } else {
+      this.disableClose=false;
+    }
+
+  }
 
   ngOnInit(): void {
   }

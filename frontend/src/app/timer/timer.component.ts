@@ -6,8 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent implements OnInit {
+  
+  w = window.innerWidth;
+  disableClose:boolean;
+  constructor() { 
+    if (this.w > 450) {
+      this.disableClose=true;
+    } else {
+      this.disableClose=false;
+    }
 
-  constructor() { }
+  }
+
   seconds: number = 0;
   seconds_zero: any = 0;
   minutes_zero: any = 0;
