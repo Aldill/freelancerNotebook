@@ -37,6 +37,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ChangeUsernameComponent } from './change-username/change-username.component';
+import { EditProjectInfoComponent } from './edit-project-info/edit-project-info.component';
 export const customCurrencyMaskConfig = {
   align: 'left',
   allowNegative: true,
@@ -65,6 +66,7 @@ export const customCurrencyMaskConfig = {
     AccountSettingsComponent,
     ChangePasswordComponent,
     ChangeUsernameComponent,
+    EditProjectInfoComponent,
      ],
   imports: [
     BrowserModule,

@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  w = window.innerWidth;
+  disableClose:boolean;
+  constructor() { 
+    if (this.w > 450) {
+      this.disableClose=true;
+    } else {
+      this.disableClose=false;
+    }
+
+  }
 
   ngOnInit(): void {
   }

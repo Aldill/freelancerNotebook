@@ -35,6 +35,27 @@ mat-card{
     top:-100px;
     right: 300px;
     transform: scaleX(-1);
+    width: 300px;
+    height: 180px;
 
 }
 
+@media only screen and (max-width: 600px) {
+    mat-card{
+
+        fill-rule: "90";
+        top: 0px;
+        right:0px;
+    
+    }
+  }
+
+  @media only screen and (max-width: 1025px) and (min-width: 600px) {
+    mat-card{
+  
+        fill-rule: "100";
+        top: 0px;
+        right:0px;
+    
+    }
+  }

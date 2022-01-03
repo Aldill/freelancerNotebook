@@ -7,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  constructor() { }
+  w = window.innerWidth;
+  disableClose:boolean;
+  constructor() { 
+    if (this.w > 450) {
+      this.disableClose=true;
+    } else {
+      this.disableClose=false;
+    }
+
+  }
+
 
   ngOnInit(): void {
   }

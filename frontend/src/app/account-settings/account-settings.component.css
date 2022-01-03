@@ -48,6 +48,28 @@ mat-card{
 
 }
 
+
+
+@media only screen and (max-width: 600px) {
+    mat-card{
+
+        fill-rule: "90";
+        top: auto;
+        right:auto;
+    
+    }
+  }
+
+  @media only screen and (max-width: 1025px) and (min-width: 600px) {
+    mat-card{
+  
+        fill-rule: "100";
+        top: auto;
+        right:auto;
+    
+    }
+  }
+
 .mat-radio-button ~ .mat-radio-button {
     margin-left: 60px;
     margin-bottom: 16px;

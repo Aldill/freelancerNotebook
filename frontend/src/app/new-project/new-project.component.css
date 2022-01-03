@@ -69,15 +69,24 @@ mat-card{
     width: 100%;
   }
 
+  #back{
+    width: 40%;
+
+}
   }
 
-  @media only screen and (max-width: 1025px) {
+  @media only screen and (max-width: 1025px)and (min-width: 600px) {
     mat-card{
         background-color:#6666CC;
         fill-rule: "100";
         top:  auto;
         right: auto;
     
+    }
+    
+    #back{
+        width: 40%;
+
     }
   }
 

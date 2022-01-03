@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-edit-project-info',
+  templateUrl: './edit-project-info.component.html',
+  styleUrls: ['./edit-project-info.component.css']
 })
-export class SignupComponent implements OnInit {
+export class EditProjectInfoComponent implements OnInit {
 
   w = window.innerWidth;
   disableClose:boolean;
@@ -17,8 +17,6 @@ export class SignupComponent implements OnInit {
     }
 
   }
-
-
   ngOnInit(): void {
   }
 

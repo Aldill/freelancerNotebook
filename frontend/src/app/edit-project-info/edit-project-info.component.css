@@ -39,24 +39,27 @@
 .mat-expansion-panel{   
     background-color:#6666CC;
     width: 28cm;
-    padding: 10px;
+    padding: 0px;
     margin: 10px;
     
     height: 100%;
 
 }
 
-
   .edit{
-    right: -500px;
+    right: -350px;
     background-color: #799c53; 
 
   }
-  .details{
-    right: -300px;
-    background-color: rgba(255, 217, 0, 0.767);
-
+  textarea{
+    background-color:#6666CC;
+  outline:none;
+  font-family: inherit;
+  height: 20px;
+  color: inherit;
+  font-size: inherit;
   }
+
 mat-card{
     width: 29cm;
     height: 80%;
@@ -68,6 +71,12 @@ mat-card{
 
 }
 @media only screen and (max-width: 600px) {
+
+    textarea{
+width: 100%;
+height: 50px;
+
+    }
   mat-card{
       width:90%;
       top:  0px;
@@ -84,14 +93,11 @@ mat-card{
 mat-paginator{
 height: 1cm;
 }
-.details{
-visibility: hidden;
 
 
-}
 .edit{
   width: 0px;
-  right: -25px;
+  right: -15px;
     
     }
 

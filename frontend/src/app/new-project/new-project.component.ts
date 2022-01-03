@@ -16,8 +16,17 @@ export class NewProjectComponent implements OnInit {
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   chips: Chip[] = [];
+  w = window.innerWidth;
+  disableClose:boolean;
+  constructor() { 
+    if (this.w > 450) {
+      this.disableClose=true;
+    } else {
+      this.disableClose=false;
+    }
 
-  constructor() { }
+  }
+
 
   ngOnInit(): void {
   }

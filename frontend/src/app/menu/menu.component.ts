@@ -7,8 +7,16 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  w = window.innerWidth;
+  disableClose:boolean;
+  constructor(public dialog: MatDialog) { 
+    if (this.w > 450) {
+      this.disableClose=true;
+    } else {
+      this.disableClose=false;
+    }
 
-  constructor(public dialog: MatDialog) { }
+  }
 
   ngOnInit(): void {
   }
@@ -24,3 +32,5 @@ export class MenuComponent implements OnInit {
   templateUrl: 'dialog-elements-example-dialog.html',
 })
 export class DialogElementsExampleDialog {}
+
+   

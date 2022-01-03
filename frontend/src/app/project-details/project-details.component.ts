@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectDetailsComponent implements OnInit {
 
-  constructor() { }
+  w = window.innerWidth;
+  disableClose:boolean;
+  constructor() { 
+    if (this.w > 450) {
+      this.disableClose=true;
+    } else {
+      this.disableClose=false;
+    }
+
+  }
+
 
   ngOnInit(): void {
   }
+  clickMethod(name: string, action: string) {
+    if(confirm("Are you sure you want to "+ action+" project "+name+"?")) {
+      console.log("Implement delete functionality here");
+    }
+  }
 
+  
 }
