@@ -4,18 +4,27 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace FreelancerNotebook.Models
 {
     public class User
-    {    
+    {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
-        public string id {get;set;}
-        public string mail { get; set; }
-        public bool isAdmin { get; set; }   
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id {get;set;}
+        [BsonElement("Mail")]
+        public string Mail { get; set; } = null!;
+        [BsonElement("IsAdmin")]
+        public bool IsAdmin { get; set; }   
        
         [BsonElement("Username")]
-        public string username{get;set;}
+        public string Username{get;set;} = null!;
         [BsonElement("Password")]
-        public string password { get; set; }
+        public string Password { get; set; } = null!;
     }    
     
+    public class AuthenticateUser
+    {
+        [BsonElement("Username")]
+        public string Username { get; set; } = null!;
+        [BsonElement("Password")]
+        public string Password { get; set; } = null!;
+    }
     
 }

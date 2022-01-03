@@ -22,7 +22,7 @@ namespace FreelancerNotebook.Services
             _entries.Find(entry => true).ToList();
 
         public Entry Get(string id) =>
-            _entries.Find<Entry>(entry => entry.id == id).FirstOrDefault();
+            _entries.Find<Entry>(entry => entry.Id == id).FirstOrDefault();
 
         public Entry Create(Entry entry)
         {
@@ -31,12 +31,12 @@ namespace FreelancerNotebook.Services
         }
 
         public void Update(string id, Entry entryIn) =>
-            _entries.ReplaceOne(entry => entry.id == id, entryIn);
+            _entries.ReplaceOne(entry => entry.Id == id, entryIn);
 
         public void Remove(Entry entryIn) =>
-            _entries.DeleteOne(entry => entry.id == entryIn.id);
+            _entries.DeleteOne(entry => entry.Id == entryIn.Id);
 
         public void Remove(string id) => 
-            _entries.DeleteOne(entry => entry.id == id);
+            _entries.DeleteOne(entry => entry.Id == id);
     }
 }

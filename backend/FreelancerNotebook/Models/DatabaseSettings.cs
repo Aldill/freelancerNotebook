@@ -2,12 +2,12 @@ namespace FreelancerNotebook.Models
 {
     public class DatabaseSettings : IDatabaseSettings
     {
-        public string? UsersCollectionName { get; set; }
-        public string? ProjectsCollectionName { get; set; }
-        public string? EntriesCollectionName { get; set; }
-        public string? ClientCollectionName { get; set; }
-        public string? ConnectionString { get; set; }
-        public string? DatabaseName { get; set; }
+        public string UsersCollectionName { get; set; } = null!;
+        public string ProjectsCollectionName { get; set; } = null!;
+        public string EntriesCollectionName { get; set; } = null!;
+        public string ClientCollectionName { get; set; } = null!;
+        public string ConnectionString { get; set; } = null!;
+        public string DatabaseName { get; set; } = null!;
     }
 
     public interface IDatabaseSettings

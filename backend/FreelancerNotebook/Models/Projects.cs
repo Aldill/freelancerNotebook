@@ -7,17 +7,21 @@ namespace FreelancerNotebook.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string id {get;set;}
+        public string Id {get;set;} = null!;
         [BsonElement("Title")]
-        public string title { get; set; }
+        public string Title { get; set; } = null!;
         [BsonElement("Description")]
-        public string description { get; set; }        
-        public BsonDateTime date { get; set; }   
-        public BsonDateTime deadline { get; set; }   
-       
-        public double defaultRate {get;set;}
-        public int cilentId {get;set;}
-        public int user {get;set;}
+        public string Description { get; set; } = null!;
+        [BsonElement("Date")]
+        public DateTime Date { get; set; }
+        [BsonElement("Deadline")]
+        public DateTime Deadline { get; set; }
+        [BsonElement("DefaultRate")]
+        public double DefaultRate {get;set;}
+        [BsonElement("CilentId")]
+        public int CilentId {get;set;}
+        [BsonElement("UserId")]
+        public int UserId {get;set;}
        
     }    
     

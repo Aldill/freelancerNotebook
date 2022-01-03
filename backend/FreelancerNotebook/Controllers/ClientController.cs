@@ -38,7 +38,7 @@ namespace FreelancerNotebook.Controllers
         {
             _clientService.Create(client);
 
-            return CreatedAtRoute("GetClient", new { id = client.id.ToString() }, client);
+            return CreatedAtRoute("GetClient", new { id = client.Id.ToString() }, client);
         }
 
         [HttpPut("{id:length(24)}")]
@@ -66,7 +66,7 @@ namespace FreelancerNotebook.Controllers
                 return NotFound();
             }
 
-            _clientService.Remove(client.id);
+            _clientService.Remove(client.Id);
 
             return NoContent();
         }

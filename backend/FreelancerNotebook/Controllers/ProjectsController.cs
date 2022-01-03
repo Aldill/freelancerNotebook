@@ -38,7 +38,7 @@ namespace FreelancerNotebook.Controllers
         {
             _projectService.Create(project);
 
-            return CreatedAtRoute("GetProject", new { id = project.id.ToString() }, project);
+            return CreatedAtRoute("GetProject", new { id = project.Id.ToString() }, project);
         }
 
         [HttpPut("{id:length(24)}")]
@@ -66,7 +66,7 @@ namespace FreelancerNotebook.Controllers
                 return NotFound();
             }
 
-            _projectService.Remove(project.id);
+            _projectService.Remove(project.Id);
 
             return NoContent();
         }
