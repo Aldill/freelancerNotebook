@@ -10,7 +10,7 @@ namespace FreelancerNotebook.Models
         public string id {get;set;}
         [BsonElement("Name")]
         public string name{get;set;}
-     
+        [BsonElement("Mail")]
         public string mail { get; set; }        
        
     }    

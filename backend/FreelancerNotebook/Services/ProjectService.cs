@@ -1,4 +1,5 @@
 using FreelancerNotebook.Models;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,12 @@ namespace FreelancerNotebook.Services
     {
         private readonly IMongoCollection<Project> _projects;
 
-        public ProjectService(IMongoDatabaseSettings settings)
+        public ProjectService(IOptions<DatabaseSettings> settings)
         {
-            var client = new MongoClient(settings.ConnectionString);
-            var database = client.GetDatabase(settings.DatabaseName);
+            var client = new MongoClient(settings.Value.ConnectionString);
+            var database = client.GetDatabase(settings.Value.DatabaseName);
 
-            _projects = database.GetCollection<Project>(settings.ProjectsCollectionName);
+            _projects = database.GetCollection<Project>(settings.Value.ProjectsCollectionName);
         }
 
         public List<Project> Get() =>
