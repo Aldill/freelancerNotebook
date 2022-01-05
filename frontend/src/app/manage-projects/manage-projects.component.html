@@ -11,8 +11,8 @@
     <a mat-list-item  routerLink = "/manage-projects" >Manage projects</a>
     
     
-    <a mat-list-item  [matMenuTriggerFor]="menu" >Settings</a>
-    
+    <a mat-list-item routerLink = "/settings" >Settings</a>
+        
 
     
     
@@ -22,7 +22,8 @@
     
     
     
-    <a mat-list-item>About</a>
+
+<a mat-list-item (click)="openDialog()" > About</a>
     </mat-nav-list>
 </mat-sidenav>
 <mat-sidenav-content>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {MatDialog} from '@angular/material/dialog';
 @Component({
   selector: 'app-project-details',
   templateUrl: './project-details.component.html',
@@ -9,7 +9,7 @@ export class ProjectDetailsComponent implements OnInit {
 
   w = window.innerWidth;
   disableClose:boolean;
-  constructor() { 
+  constructor(public dialog: MatDialog) { 
     if (this.w > 450) {
       this.disableClose=true;
     } else {
@@ -27,5 +27,16 @@ export class ProjectDetailsComponent implements OnInit {
     }
   }
 
-  
+  openDialog() {
+    this.dialog.open(DialogElementsExampleDialog);
+  }
+
 }
+
+@Component({
+  selector: 'dialog-elements-example-dialog',
+  templateUrl: '../dialog-elements-example-dialog.html',
+})
+export class DialogElementsExampleDialog {}
+
+   

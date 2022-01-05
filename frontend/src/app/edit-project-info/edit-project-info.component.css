@@ -100,7 +100,8 @@ height: 1cm;
   right: -15px;
     
     }
-
+    .image{ 
+      height:100%;}
 }
 
 @media only screen and (max-width: 1025px)  and (min-width: 600px) {
@@ -126,5 +127,7 @@ mat-paginator{
 
   
   }
+  .image{ 
+    height:100%;}
 
 }

@@ -9,10 +9,10 @@ import { NewProjectComponent } from './new-project/new-project.component';
 import { ManageProjectsComponent } from './manage-projects/manage-projects.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { SettingsComponent } from './settings/settings.component';
-import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ChangeUsernameComponent } from './change-username/change-username.component';
 import { EditProjectInfoComponent } from './edit-project-info/edit-project-info.component';
+import { AccountInfoComponent } from './account-info/account-info.component';
 const routes: Routes = [
 {path:"",component:LoginComponent},
 {path:"home",component:MenuComponent},
@@ -23,10 +23,10 @@ const routes: Routes = [
 {path: "manage-projects", component: ManageProjectsComponent},
 {path: "project-details", component: ProjectDetailsComponent},
 {path: "settings", component: SettingsComponent},
-{path: "account-settings", component: AccountSettingsComponent},
 {path: "change-password", component: ChangePasswordComponent},
 {path: "change-username", component: ChangeUsernameComponent},
-{path: "edit-project-info", component: EditProjectInfoComponent}
+{path: "edit-project-info", component: EditProjectInfoComponent},
+{path: "account", component: AccountInfoComponent}
 ];
 
 @NgModule({

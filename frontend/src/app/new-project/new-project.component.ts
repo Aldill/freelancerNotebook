@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material/chips';
+import {MatDialog} from '@angular/material/dialog';
 
 export interface Chip {
   name: string;
@@ -18,7 +19,7 @@ export class NewProjectComponent implements OnInit {
   chips: Chip[] = [];
   w = window.innerWidth;
   disableClose:boolean;
-  constructor() { 
+  constructor(public dialog: MatDialog) { 
     if (this.w > 450) {
       this.disableClose=true;
     } else {
@@ -49,4 +50,16 @@ export class NewProjectComponent implements OnInit {
       this.chips.splice(index, 1);
     }
   }
+  openDialog() {
+    this.dialog.open(DialogElementsExampleDialog);
+  }
+
 }
+
+@Component({
+  selector: 'dialog-elements-example-dialog',
+  templateUrl: '../dialog-elements-example-dialog.html',
+})
+export class DialogElementsExampleDialog {}
+
+   

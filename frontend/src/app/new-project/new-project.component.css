@@ -73,6 +73,10 @@ mat-card{
     width: 40%;
 
 }
+
+.image{ 
+    height:100%;}
+
   }
 
   @media only screen and (max-width: 1025px)and (min-width: 600px) {
@@ -88,7 +92,12 @@ mat-card{
         width: 40%;
 
     }
+
+    .image{ 
+        height:100%;}
+ 
   }
+
 
 .example-chip-list{
     background-color: #799c53;

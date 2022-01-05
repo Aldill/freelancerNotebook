@@ -1,3 +1,4 @@
+
 <mat-toolbar>
     <button mat-flat-button (click)="sidenav.toggle()" ><mat-icon>menu</mat-icon></button>
   </mat-toolbar>
@@ -9,16 +10,15 @@
       <a mat-list-item routerLink = "/new-project">New project</a>
       <a mat-list-item  routerLink = "/manage-projects" >Manage projects</a>
       <a mat-list-item routerLink = "/settings" >Settings</a>
-        
-
+          
+  
       
         <a href="mailto:juliaols88@gmail.com"><a mat-list-item >Send feedback</a></a>
-
-
+  
+  
       
-      
-
-<a mat-list-item (click)="openDialog()" > About</a>
+  
+      <a mat-list-item>About</a>
       </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -28,23 +28,49 @@
                   <mat-expansion-panel disabled expanded>
                     <mat-expansion-panel-header>
                       <mat-panel-title>
-                        <textarea matInput placeholder="Project title" formControlName="message" cdkTextareaAutosize
-                        cdkAutosizeMinRows="1"
-                        cdkAutosizeMaxRows="1">Project title</textarea>
+                          
+                        <mat-icon>favorite</mat-icon>
+                           Hi, Username!
                       </mat-panel-title>
                       <mat-panel-description>
-                        <textarea matInput placeholder="Project description" formControlName="message"cdkTextareaAutosize
-                        cdkAutosizeMinRows="1"
-                        cdkAutosizeMaxRows="1" >Project description</textarea>
 
-                        
-                        <button mat-flat-button type ="submit" class = "edit " routerLink = "/project-details"> <mat-icon>save</mat-icon></button>
-                        
-
+                        <div   fxFlexFill class="main-div">
+                       
+                                
+                                <form   id = "form"  >
+                                    <button  id="settings" routerLink = "/settings" mat-flat-button  color = "accent" >
+                                        Account settings      
+                                    </button>    
+                    
+                                </form>
+                   
+                                </div>
+            
                       </mat-panel-description>
   
                     </mat-expansion-panel-header>
-<p>PROJECT DETAILS</p>
+
+
+                    <div   fxFlexFill class="main-div">
+
+                    <mat-card id = "member">     <p>Member from: </p>   
+                        <p id = "big">2022 </p>
+                    
+                    </mat-card>
+                    <mat-card id = "project">     <p>Total number of projects: </p>
+                    
+                        <p id = "big">10 </p>
+                    </mat-card>
+                    <mat-card id = "entries">  
+                        <p>Total hours spent on entries: </p>
+    
+                    
+                        <p id = "big">560 </p>
+                    
+                    </mat-card>
+                
+        </div>
+
                   </mat-expansion-panel>
    
                 </mat-accordion>

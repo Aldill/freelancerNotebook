@@ -21,27 +21,9 @@
     color: white;
     
 
-}
-
-mat-card{
-    background-color: rgba(255, 217, 0, 0.295);
-
-    top:  -120px;
-    right: -430px;
 
 }
-@media only screen and (max-width: 600px)  {
-    mat-card{
-visibility: hidden;
-    
-    }
-  }
 
-  @media only screen and (max-width: 1025px) and (min-width: 600px) {
-    mat-card{
-        visibility: hidden;
-    }
-  }
 .image{ 
     height:93.8%;
     
@@ -61,3 +43,29 @@ textarea{
     font-size:xx-large;
     text-align: center;
 }
+
+
+mat-card{
+    background-color: rgba(255, 217, 0, 0.295);
+
+    top:  -120px;
+    right: -430px;
+
+}
+@media only screen and (max-width: 600px)  {
+    mat-card{
+visibility: hidden;
+    
+    }
+    .image{ 
+        height:100%;}
+  }
+
+  @media only screen and (max-width: 1025px) and (min-width: 600px) {
+    mat-card{
+        visibility: hidden;
+    }
+
+    .image{ 
+        height:100%;}
+  }

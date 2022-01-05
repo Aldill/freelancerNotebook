@@ -29,7 +29,7 @@ export class MenuComponent implements OnInit {
 
 @Component({
   selector: 'dialog-elements-example-dialog',
-  templateUrl: 'dialog-elements-example-dialog.html',
+  templateUrl: '../dialog-elements-example-dialog.html',
 })
 export class DialogElementsExampleDialog {}
 

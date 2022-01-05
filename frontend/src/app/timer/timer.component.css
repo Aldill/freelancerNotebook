@@ -88,6 +88,8 @@ margin : 0cm;
     .mat-icon{
       visibility: hidden;
     }
+    .image{ 
+      height:100%;}
 
   }
 
@@ -106,6 +108,10 @@ margin : 0cm;
       width: 100%;
       height:95.65%;
     } 
+
+    .image{ 
+      height:100%;}
+
   }
   
   .other-default {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {MatDialog} from '@angular/material/dialog';
 @Component({
   selector: 'app-change-username',
   templateUrl: './change-username.component.html',
@@ -9,7 +9,7 @@ export class ChangeUsernameComponent implements OnInit {
 
   w = window.innerWidth;
   disableClose:boolean;
-  constructor() { 
+  constructor(public dialog: MatDialog) { 
     if (this.w > 450) {
       this.disableClose=true;
     } else {
@@ -21,5 +21,16 @@ export class ChangeUsernameComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  openDialog() {
+    this.dialog.open(DialogElementsExampleDialog);
+  }
 
 }
+
+@Component({
+  selector: 'dialog-elements-example-dialog',
+  templateUrl: '../dialog-elements-example-dialog.html',
+})
+export class DialogElementsExampleDialog {}
+
+   

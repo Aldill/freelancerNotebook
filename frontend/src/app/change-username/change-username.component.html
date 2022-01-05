@@ -10,22 +10,18 @@
         <a mat-list-item  routerLink = "/manage-projects" >Manage projects</a>
         
         
-        <a mat-list-item  [matMenuTriggerFor]="menu" >Settings</a>
+        <a mat-list-item routerLink = "/settings" >Settings</a>
         
-        <mat-menu class ="menu" #menu="matMenu" xPosition="after">
-            <button mat-menu-item routerLink = "/settings">App settings</button>
-            <button mat-menu-item routerLink = "/account-settings">Account settings</button>
-          </mat-menu>
-        
-        
+
         
           <a href="mailto:juliaols88@gmail.com"><a mat-list-item >Send feedback</a></a>
 
 
         
         
-        
-        <a mat-list-item>About</a>
+   
+
+<a mat-list-item (click)="openDialog()" > About</a>
         </mat-nav-list>
 
 </mat-sidenav>

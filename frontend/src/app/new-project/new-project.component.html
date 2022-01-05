@@ -11,14 +11,9 @@
     <a mat-list-item  routerLink = "/manage-projects" >Manage projects</a>
     
     
-    <a mat-list-item  [matMenuTriggerFor]="menu" >Settings</a>
-    
-    <mat-menu class ="menu" #menu="matMenu" xPosition="after">
-        <button mat-menu-item routerLink = "/settings">App settings</button>
-        <button mat-menu-item routerLink = "/account-settings">Account settings</button>
-      </mat-menu>
-    
-    
+    <a mat-list-item routerLink = "/settings" >Settings</a>
+        
+
     
       <a href="mailto:juliaols88@gmail.com"><a mat-list-item >Send feedback</a></a>
 
@@ -26,7 +21,8 @@
     
     
     
-    <a mat-list-item>About</a>
+
+<a mat-list-item (click)="openDialog()" > About</a>
     </mat-nav-list>
 
 </mat-sidenav>
@@ -47,30 +43,8 @@
                 <input matInput type="date" placeholder="Provide project deadline">
             
                 </mat-form-field>
-                <mat-form-field color = "accent">
-               
-                    <input matInput currencyMask value="" placeholder="Set flat fee">
-              </mat-form-field>
-                <mat-form-field color = "accent">
-               
-                <input  matInput currencyMask value="" placeholder="Set hourly rate">
-          </mat-form-field>
-          <mat-form-field>
-          <mat-chip-list #chipList>
-            <mat-chip  color="primary" selected *ngFor="let chip of chips" [selectable]="selectable"
-                     [removable]="removable" (removed)="remove(chip)">
-              {{chip.name}}
-              <button matChipRemove *ngIf="removable">
-                <mat-icon>cancel</mat-icon>
-              </button>
-            </mat-chip>
-            <input  matTooltip="For example expedided completion or creating custom design templates" placeholder="Add additional services"
-                   [matChipInputFor]="chipList"
-                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                   [matChipInputAddOnBlur]="addOnBlur"
-                   (matChipInputTokenEnd)="add($event)">
-          </mat-chip-list>
-        </mat-form-field>
+   
+
           <button mat-flat-button id = "forward" matStepperNext='button' color = "accent" >
             <mat-icon>arrow_forward</mat-icon>
 

@@ -34,10 +34,10 @@ import { SettingsComponent } from './settings/settings.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ChangeUsernameComponent } from './change-username/change-username.component';
 import { EditProjectInfoComponent } from './edit-project-info/edit-project-info.component';
+import { AccountInfoComponent } from './account-info/account-info.component';
 export const customCurrencyMaskConfig = {
   align: 'left',
   allowNegative: true,
@@ -63,10 +63,10 @@ export const customCurrencyMaskConfig = {
     ManageProjectsComponent,
     ProjectDetailsComponent,
     SettingsComponent,
-    AccountSettingsComponent,
     ChangePasswordComponent,
     ChangeUsernameComponent,
     EditProjectInfoComponent,
+    AccountInfoComponent,
      ],
   imports: [
     BrowserModule,
