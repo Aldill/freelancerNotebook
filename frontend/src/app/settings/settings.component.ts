@@ -24,7 +24,18 @@ export class SettingsComponent implements OnInit {
   openDialog() {
     this.dialog.open(DialogElementsExampleDialog);
   }
+  clickMethod(name: string, action: string) {
 
+    if(confirm("Are you sure you want to " + action + " " +name)) {
+
+      if(action=="permanently delete"){
+      console.log("Implement delete functionality here");}
+
+      if(action=="permanently reset all your progress?"){
+        console.log("Implement reset functionality here");}
+  
+    }
+  }
 }
 
 @Component({

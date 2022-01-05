@@ -48,6 +48,7 @@
 
     width: 100cm;
 
+
   }
 
   .details{
@@ -62,6 +63,7 @@
 mat-card{
     width: 29cm;
     background-color: transparent;
+    outline:none;
     padding: 0px;
     margin: 0px;
     top:  0px;
@@ -100,31 +102,31 @@ height: 1cm;
 
 @media only screen and (max-width: 1025px) and (min-width: 600px) {
   mat-card{
-    width:95%;
-      top:  0px;
-      right: 0px;
-  
-  }
-  .mat-expansion-panel{   
-    background-color:#6666CC;
-    width: 90%;
-    padding: 10px;
-    margin: 10px;
+    width:90%;
+    top:  0px;
+    right: 0px;
+
+
+}
+.mat-expansion-panel{   
+  background-color:#6666CC;
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
 
 }
 mat-paginator{
-  height: 1cm;
-  }
-  .details{
-    width: 0px;
-    right: 25px;
-  
-  }
-  .edit{
+height: 1.5cm;
+}
+.details{
+width: 0px;
+right: -200px;
+
+}
+.edit{
 visibility: hidden;
   
   }
-
   .image{ 
     height:100%;}
 }

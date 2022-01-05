@@ -120,7 +120,7 @@ mat-stepper{
 }
 
 .mat-radio-button ~ .mat-radio-button {
-    margin-left: 60px;
+    margin-left: 20px;
     margin-bottom: 16px;
     
   }

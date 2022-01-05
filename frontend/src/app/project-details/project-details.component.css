@@ -115,12 +115,10 @@ visibility: hidden;
     margin: 10px;
 
 }
-mat-paginator{
-  height: 1cm;
-  }
+
   .edit{
     width: 100px;
-    right: -30px;
+    right: -230px;
 
   
   }

@@ -40,11 +40,11 @@
                      Change password           
                  </button>
 
-                <button mat-flat-button id ="danger-zone"  color = "accent" >
+                <button mat-flat-button id ="danger-zone"  (click)="clickMethod('This will delete all your past and current projects!','permanently reset all your progress?')"  color = "accent" >
                    Reset all progress          
                  </button>
 
-                    <button mat-flat-button id ="danger-zone"  color = "accent" >
+                    <button mat-flat-button id ="danger-zone"  (click)="clickMethod('your account?','permanently delete')" color = "accent" >
                        Delete account           
                     </button>
             

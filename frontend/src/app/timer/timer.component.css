@@ -94,6 +94,17 @@ margin : 0cm;
   }
 
   @media only screen and (max-width: 1025px) {
+
+    .image{ 
+      height:93.8%;
+      background-color:hsl(240, 50%, 60%);
+      background: url('../../img/4009727.jpg') no-repeat center center fixed ;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    
+  }
     .btn-default {
       background: url('../../img/4009727.jpg') no-repeat center center fixed ;
    
@@ -108,6 +119,7 @@ margin : 0cm;
       width: 100%;
       height:95.65%;
     } 
+
 
     .image{ 
       height:100%;}

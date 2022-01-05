@@ -6,10 +6,10 @@
     
     <form   id = "form" fxLayout="column"  >
 <mat-form-field color = "accent">
-<input matInput placeholder="Username">
+<input matInput required minlength="4" placeholder="Username">
 </mat-form-field>
 <mat-form-field color = "accent">
-    <input matInput type = 'password' placeholder="Password">
+    <input matInput type = 'password'ngModel required  minlength="4"placeholder="Password">
     </mat-form-field>
 <button mat-flat-button type ="submit" color = "accent" routerLink = "/home">Login</button>
 

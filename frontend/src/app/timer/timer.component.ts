@@ -17,7 +17,7 @@ export class TimerComponent implements OnInit {
     }
 
   }
-
+  
   seconds: number = 0;
   seconds_zero: any = 0;
   minutes_zero: any = 0;
