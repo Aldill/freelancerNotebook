@@ -22,7 +22,7 @@ namespace FreelancerNotebook.Services
             _projects.Find(project => true).ToList();
 
         public Project Get(string id) =>
-            _projects.Find<Project>(project => project.id == id).FirstOrDefault();
+            _projects.Find<Project>(project => project.Id == id).FirstOrDefault();
 
         public Project Create(Project project)
         {
@@ -31,12 +31,12 @@ namespace FreelancerNotebook.Services
         }
 
         public void Update(string id, Project projectIn) =>
-            _projects.ReplaceOne(project => project.id == id, projectIn);
+            _projects.ReplaceOne(project => project.Id == id, projectIn);
 
         public void Remove(Project projectIn) =>
-            _projects.DeleteOne(project => project.id == projectIn.id);
+            _projects.DeleteOne(project => project.Id == projectIn.Id);
 
         public void Remove(string id) => 
-            _projects.DeleteOne(project => project.id == id);
+            _projects.DeleteOne(project => project.Id == id);
     }
 }

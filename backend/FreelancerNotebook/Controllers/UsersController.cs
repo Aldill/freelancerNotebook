@@ -1,11 +1,14 @@
 using FreelancerNotebook.Models;
 using FreelancerNotebook.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace FreelancerNotebook.Controllers
 {
+    
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -14,6 +17,19 @@ namespace FreelancerNotebook.Controllers
         public UsersController(UserService userService)
         {
             _userService = userService;
+        }
+
+        [AllowAnonymous]
+        [Route("authenticate")]
+        [HttpPost]
+        public ActionResult Login([FromBody] AuthenticateUser user)
+        {
+            var token = _userService.Authenticate(user.Username, user.Password);
+            if (token == null)
+            {
+                return Unauthorized();
+            }
+            return Ok(new { token });
         }
 
         [HttpGet]
@@ -38,7 +54,7 @@ namespace FreelancerNotebook.Controllers
         {
             _userService.Create(user);
 
-            return CreatedAtRoute("GetUser", new { id = user.id.ToString() }, user);
+            return CreatedAtRoute("GetUser", new { id = user.Id.ToString() }, user);
         }
 
         [HttpPut("{id:length(24)}")]
@@ -66,7 +82,7 @@ namespace FreelancerNotebook.Controllers
                 return NotFound();
             }
 
-            _userService.Remove(user.id);
+            _userService.Remove(user.Id);
 
             return NoContent();
         }

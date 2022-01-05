@@ -21,7 +21,7 @@ namespace FreelancerNotebook.Services
             _client.Find(client => true).ToList();
 
         public Client Get(string id) =>
-            _client.Find<Client>(client => client.id == id).FirstOrDefault();
+            _client.Find<Client>(client => client.Id == id).FirstOrDefault();
 
         public Client Create(Client client)
         {
@@ -30,13 +30,13 @@ namespace FreelancerNotebook.Services
         }
 
         public void Update(string id, Client clientIn) =>
-            _client.ReplaceOne(client => client.id == id, clientIn);
+            _client.ReplaceOne(client => client.Id == id, clientIn);
 
         public void Remove(Client clientIn) =>
-            _client.DeleteOne(client => client.id == clientIn.id);
+            _client.DeleteOne(client => client.Id == clientIn.Id);
 
         public void Remove(string id) => 
-            _client.DeleteOne(client => client.id == id);
+            _client.DeleteOne(client => client.Id == id);
     }
 
     public interface IClientService

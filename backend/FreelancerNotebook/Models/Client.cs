@@ -7,12 +7,12 @@ namespace FreelancerNotebook.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string id {get;set;}
+        public string? Id {get;set; }
         [BsonElement("Name")]
-        public string name{get;set;}
+        public string Name{get;set;} = null!;
         [BsonElement("Mail")]
-        public string mail { get; set; }        
-       
+        public string Mail { get; set; } = null!;
+
     }    
     
     

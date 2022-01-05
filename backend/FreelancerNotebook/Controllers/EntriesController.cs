@@ -38,7 +38,7 @@ namespace FreelancerNotebook.Controllers
         {
             _entryService.Create(entry);
 
-            return CreatedAtRoute("GetEntry", new { id = entry.id.ToString() }, entry);
+            return CreatedAtRoute("GetEntry", new { id = entry.Id.ToString() }, entry);
         }
 
         [HttpPut("{id:length(24)}")]
@@ -66,7 +66,7 @@ namespace FreelancerNotebook.Controllers
                 return NotFound();
             }
 
-            _entryService.Remove(entry.id);
+            _entryService.Remove(entry.Id);
 
             return NoContent();
         }
