@@ -1,52 +1,46 @@
-
-   <mat-toolbar>
-
-       <button mat-flat-button (click)="sidenav.toggle()" ><mat-icon>menu</mat-icon></button>
+<mat-toolbar>
+  <button mat-flat-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
 </mat-toolbar>
-<mat-sidenav-container  [hasBackdrop]="false" class="image">
-<mat-sidenav #sidenav [opened] = "true" [disableClose]="true">
-<mat-nav-list>
-<a mat-list-item><button mat-flat-button type ="submit"  routerLink = "/account">ACCOUNT</button></a>
-<a mat-list-item routerLink = "/new-entry">New entry</a>
-<a mat-list-item routerLink = "/new-project">New project</a>
-<a mat-list-item  routerLink = "/manage-projects" >Manage projects</a>
+<mat-sidenav-container [hasBackdrop]="false" class="image">
+  <mat-sidenav #sidenav [opened]="true" [disableClose]="true">
+    <mat-nav-list>
+      <a mat-list-item
+        ><button mat-flat-button type="submit" routerLink="/account">
+          ACCOUNT
+        </button></a
+      >
+      <a mat-list-item routerLink="/new-entry">New entry</a>
+      <a mat-list-item routerLink="/new-project">New project</a>
+      <a mat-list-item routerLink="/manage-projects">Manage projects</a>
 
+      <a mat-list-item routerLink="/settings">Settings</a>
 
-<a mat-list-item routerLink = "/settings" >Settings</a>
-        
+      <a href="mailto:juliaols88@gmail.com"
+        ><a mat-list-item>Send feedback</a></a
+      >
 
-
-  <a href="mailto:juliaols88@gmail.com"><a mat-list-item >Send feedback</a></a>
-
-
-
-<a mat-list-item (click)="openDialog()" > About</a>
-</mat-nav-list>
-
-</mat-sidenav>
-<mat-sidenav-content>
-    <div fxLayoutAlign="center center"  fxFlexFill class="main-div">
-        <mat-card fxFlex = "25">
-            
-            <form   id = "form" fxLayout="column" >
-
-        <mat-form-field >
-    
-            <textarea readonly matInput placeholder="Tim Ferriss" id = "textarea" formControlName="message" cdkTextareaAutosize
-            cdkAutosizeMinRows="3" value = "Focus on being productive instead of busy"></textarea>
-            </mat-form-field>
-     
-        
-            </form>
-        </mat-card>
-        
-            </div>
-        
-</mat-sidenav-content>
-
-
+      <a mat-list-item (click)="openDialog()"> About</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div fxLayoutAlign="center center" fxFlexFill class="main-div">
+      <mat-card fxFlex="25">
+        <form id="form" fxLayout="column">
+          <mat-form-field>
+            <textarea
+              readonly
+              matInput
+              placeholder="Tim Ferriss"
+              id="textarea"
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="3"
+              value="Focus on being productive instead of busy"
+            ></textarea>
+          </mat-form-field>
+        </form>
+      </mat-card>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
-
-
-
-

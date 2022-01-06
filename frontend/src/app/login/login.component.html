@@ -1,23 +1,26 @@
-
 <div class="image">
-
-<div fxLayoutAlign="center center"  fxFlexFill class="main-div">
-<mat-card>
-    
-    <form   id = "form" fxLayout="column"  >
-<mat-form-field color = "accent">
-<input matInput required minlength="4" placeholder="Username">
-</mat-form-field>
-<mat-form-field color = "accent">
-    <input matInput type = 'password'ngModel required  minlength="4"placeholder="Password">
-    </mat-form-field>
-<button mat-flat-button type ="submit" color = "accent" routerLink = "/home">Login</button>
-
-    </form>
-    <a routerLink = "/signup">Not a user? Sign up!</a>
-</mat-card>
-
-    </div>
-
-    
+  <div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card>
+      <form id="form" fxLayout="column">
+        <mat-form-field color="accent">
+          <input matInput required minlength="4" placeholder="Username" />
+        </mat-form-field>
+        <mat-form-field color="accent">
+          <input
+            matInput
+            type="password"
+            ngModel
+            required
+            minlength="4"
+            placeholder="Password"
+            name="password"
+          />
+        </mat-form-field>
+        <button mat-flat-button type="submit" color="accent" routerLink="/home">
+          Login
+        </button>
+      </form>
+      <a routerLink="/signup">Not a user? Sign up!</a>
+    </mat-card>
+  </div>
 </div>

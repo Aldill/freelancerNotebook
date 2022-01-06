@@ -12,6 +12,8 @@ namespace FreelancerNotebook.Models
         public string Name{get;set;} = null!;
         [BsonElement("Mail")]
         public string Mail { get; set; } = null!;
+        [BsonElement("Phone")]
+        public string Phone { get; set; } = null!;
 
     }    
     

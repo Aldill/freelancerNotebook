@@ -7,7 +7,6 @@ using MongoDB.Driver;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
 builder.Services.AddSingleton<ClientService>();
@@ -17,6 +16,10 @@ builder.Services.AddSingleton<ProjectService>();
 builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddCors();
+
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -75,7 +78,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors(x => x
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .SetIsOriginAllowed(origin => true) // allow any origin
+                                                        //.WithOrigins("https://localhost:44351")); // Allow only this origin can also have multiple origins separated with comma
+                    .AllowCredentials()); // allow credentials);
 app.UseAuthorization();
 
 app.MapControllers();
