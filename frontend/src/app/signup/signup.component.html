@@ -1,35 +1,46 @@
-
 <div class="image">
-
-    <div fxLayoutAlign="center center"  fxFlexFill class="main-div">
+  <div fxLayoutAlign="center center" fxFlexFill class="main-div">
     <mat-card>
-        
-        <form   id = "form" fxLayout="column"  >
-    <mat-form-field color = "accent">
-    <input matInput placeholder="Username">
-    </mat-form-field>
-
-    <mat-form-field color = "accent"> 
-
-        <input matInput type = 'email' placeholder="Email">
-    </mat-form-field>
-  
-
-    <mat-form-field color = "accent">
-        <input matInput type = 'password' placeholder="Password">
+      <form id="form" fxLayout="column">
+        <mat-form-field color="accent">
+          <input
+            matInput
+            name="username"
+            [(ngModel)]="user.username"
+            placeholder="Username" />
         </mat-form-field>
 
-        <mat-form-field color = "accent">
-            <input matInput type = 'password' placeholder="Repeat password">
-            </mat-form-field>
+        <mat-form-field color="accent">
+          <input
+            matInput
+            [(ngModel)]="user.email"
+            name="email"
+            type="email"
+            placeholder="Email" />
+        </mat-form-field>
 
-    <button mat-flat-button type ="submit" color = "accent" routerLink = "/home">Sign up</button>
-    
-        </form>
-        <a routerLink = "">Already a user? Log in!</a>
+        <mat-form-field color="accent">
+          <input
+            matInput
+            name="password"
+            [(ngModel)]="user.password"
+            type="password"
+            placeholder="Password" />
+        </mat-form-field>
+
+        <mat-form-field color="accent">
+          <input matInput type="password" placeholder="Repeat password" />
+        </mat-form-field>
+
+        <button
+          mat-flat-button
+          type="submit"
+          color="accent"
+          (click)="registerUser()">
+          Sign up
+        </button>
+      </form>
+      <a routerLink="">Already a user? Log in!</a>
     </mat-card>
-    
-        </div>
-    
-        
-    </div>
+  </div>
+</div>

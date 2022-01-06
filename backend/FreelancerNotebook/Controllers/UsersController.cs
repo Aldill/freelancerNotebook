@@ -8,7 +8,6 @@ namespace FreelancerNotebook.Controllers
 {
     
     [Route("api/[controller]")]
-    [Authorize]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -19,7 +18,6 @@ namespace FreelancerNotebook.Controllers
             _userService = userService;
         }
 
-        [AllowAnonymous]
         [Route("authenticate")]
         [HttpPost]
         public ActionResult Login([FromBody] AuthenticateUser user)
