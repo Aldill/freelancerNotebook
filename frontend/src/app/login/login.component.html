@@ -3,20 +3,30 @@
     <mat-card>
       <form id="form" fxLayout="column">
         <mat-form-field color="accent">
-          <input matInput required minlength="4" placeholder="Username" />
+          <input
+            matInput
+            [(ngModel)]="user.username"
+            required
+            name="login"
+            minlength="4"
+            placeholder="Username" />
         </mat-form-field>
         <mat-form-field color="accent">
           <input
             matInput
+            [(ngModel)]="user.password"
             type="password"
-            ngModel
             required
             minlength="4"
             placeholder="Password"
-            name="password"
-          />
+            name="password" />
         </mat-form-field>
-        <button mat-flat-button type="submit" color="accent" routerLink="/home">
+        {{ user | json }}
+        <button
+          mat-flat-button
+          type="submit"
+          color="accent"
+          (click)="loginUser()">
           Login
         </button>
       </form>

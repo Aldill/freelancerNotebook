@@ -13,9 +13,9 @@ namespace FreelancerNotebook.Controllers
 
         private readonly IAuthService _authService;
 
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
 
-        public AuthController(IAuthService authService, UserService userService)
+        public AuthController(IAuthService authService, IUserService userService)
         {
             _authService = authService;
             _userService = userService; 
@@ -30,7 +30,7 @@ namespace FreelancerNotebook.Controllers
             {
                 return Unauthorized();
             }
-            return Ok(token);
+            return Ok(new { token });
         }
 
         [HttpGet, Authorize]

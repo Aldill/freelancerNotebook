@@ -39,8 +39,10 @@ import { ChangeUsernameComponent } from './change-username/change-username.compo
 import { EditProjectInfoComponent } from './edit-project-info/edit-project-info.component';
 import { AccountInfoComponent } from './account-info/account-info.component';
 import { ProjectsService } from './services/projects.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { LoginService } from './services/login.service';
 export const customCurrencyMaskConfig = {
   align: 'left',
   allowNegative: true,
@@ -101,7 +103,15 @@ export const customCurrencyMaskConfig = {
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [ProjectsService],
+  providers: [
+    ProjectsService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+      deps: [LoginService],
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

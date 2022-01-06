@@ -12,5 +12,7 @@ namespace FreelancerNotebook.Services.UserService
         void Update(string id, User user);
 
         void Remove(string id);
+
+        string getUserId();
     }
 }
