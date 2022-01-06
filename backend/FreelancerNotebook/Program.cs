@@ -1,18 +1,24 @@
 using FreelancerNotebook.Models;
 using FreelancerNotebook.Services;
+using FreelancerNotebook.Services.AuthService;
+using FreelancerNotebook.Services.ClientService;
+using FreelancerNotebook.Services.EntryService;
+using FreelancerNotebook.Services.ProjectService;
+using FreelancerNotebook.Services.UserService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using MongoDB.Driver;
+using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
-builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
-builder.Services.AddSingleton<ClientService>();
-builder.Services.AddSingleton<UserService>();
-builder.Services.AddSingleton<EntryService>();
-builder.Services.AddSingleton<ProjectService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IEntryService, EntryService>();
+builder.Services.AddScoped<IProjectService, ProjectService>();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -20,50 +26,30 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddCors();
 
 
-builder.Services.AddSwaggerGen(c =>
+builder.Services.AddSwaggerGen(options =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo
+    options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
     {
-        Title = "My API",
-        Version = "v1"
-    });
-    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
+        Description = "Standard ATUH header bearer before token",
         In = ParameterLocation.Header,
-        Description = "Please insert JWT with Bearer into field",
         Name = "Authorization",
         Type = SecuritySchemeType.ApiKey
     });
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement {
-   {
-     new OpenApiSecurityScheme
-     {
-       Reference = new OpenApiReference
-       {
-         Type = ReferenceType.SecurityScheme,
-         Id = "Bearer"
-       }
-      },
-      new string[] { }
-    }
-  });
+
+    options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 
-
 // auth
 
-builder.Services.AddAuthentication(x => 
+builder.Services.AddAuthentication(
+   JwtBearerDefaults.AuthenticationScheme
+).AddJwtBearer(x => 
 { 
-    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme; 
-    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme; 
-}).AddJwtBearer(x => 
-{ x.RequireHttpsMetadata = false;
-    x.SaveToken = true;
     x.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration.GetSection("JWT").ToString())),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("JWT").Value)),
         ValidateIssuer = false,
         ValidateAudience = false
     };
@@ -79,11 +65,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseCors(x => x
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .SetIsOriginAllowed(origin => true) // allow any origin
-                                                        //.WithOrigins("https://localhost:44351")); // Allow only this origin can also have multiple origins separated with comma
-                    .AllowCredentials()); // allow credentials);
+   .AllowAnyMethod()
+   .AllowAnyHeader()
+   .SetIsOriginAllowed(origin => true) // allow any origin
+   .AllowCredentials() // allow credentials);
+   );
+
+app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllers();

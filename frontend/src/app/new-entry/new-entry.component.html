@@ -85,20 +85,6 @@
 
             <section class="example-section">
               <label class="example-margin"></label>
-              <mat-radio-group [(ngModel)]="entry.isFlatFee">
-                <mat-radio-button
-                  matTooltip="Price won't be calculated based on time"
-                  class="example-margin"
-                  [value]="true">
-                  Flat fee
-                </mat-radio-button>
-                <mat-radio-button
-                  matTooltip="Price will be calculated based on time"
-                  class="example-margin"
-                  [value]="false">
-                  Hourly fee
-                </mat-radio-button>
-              </mat-radio-group>
             </section>
 
             <button
@@ -110,6 +96,20 @@
             </button>
           </mat-step>
           <mat-step>
+            <mat-radio-group [(ngModel)]="entry.isFlatFee">
+              <mat-radio-button
+                matTooltip="Price won't be calculated based on time"
+                class="example-margin"
+                [value]="true">
+                Flat fee
+              </mat-radio-button>
+              <mat-radio-button
+                matTooltip="Price will be calculated based on time"
+                class="example-margin"
+                [value]="false">
+                Hourly fee
+              </mat-radio-button>
+            </mat-radio-group>
             <mat-form-field color="accent">
               <input
                 matInput

@@ -16,7 +16,7 @@ namespace FreelancerNotebook.Models
         public DateTime Date { get; set; }
         [BsonElement("Deadline")]
         public DateTime Deadline { get; set; }
-        [BsonElement("CilentId")]
+        [BsonElement("ClientId")]
         public string ClientId {get;set;} = null!;
         [BsonElement("UserId")]
         public string UserId { get; set; } = null!;

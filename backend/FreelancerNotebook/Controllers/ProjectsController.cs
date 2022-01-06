@@ -1,17 +1,20 @@
 using FreelancerNotebook.Models;
 using FreelancerNotebook.Services;
+using FreelancerNotebook.Services.ProjectService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace FreelancerNotebook.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class ProjectsController : ControllerBase
     {
-        private readonly ProjectService _projectService;
+        private readonly IProjectService _projectService;
 
-        public ProjectsController(ProjectService projectService)
+        public ProjectsController(IProjectService projectService)
         {
             _projectService = projectService;
         }
@@ -20,7 +23,7 @@ namespace FreelancerNotebook.Controllers
         public ActionResult<List<Project>> Get() =>
             _projectService.Get();
 
-        [HttpGet("{id:length(24)}", Name = "GetProject")]
+        [HttpGet("{id:length(24)}/details", Name = "GetProject")]
         public ActionResult<Project> Get(string id)
         {
             var project = _projectService.Get(id);

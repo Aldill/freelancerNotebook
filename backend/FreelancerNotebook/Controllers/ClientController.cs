@@ -1,17 +1,20 @@
 using FreelancerNotebook.Models;
 using FreelancerNotebook.Services;
+using FreelancerNotebook.Services.ClientService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace FreelancerNotebook.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class ClientController : ControllerBase
     {
-        private readonly ClientService _clientService;
+        private readonly IClientService _clientService;
 
-        public ClientController(ClientService clientService)
+        public ClientController(IClientService clientService)
         {
             _clientService = clientService;
         }

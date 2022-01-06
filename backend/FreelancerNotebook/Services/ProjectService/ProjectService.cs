@@ -4,18 +4,20 @@ using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FreelancerNotebook.Services
+namespace FreelancerNotebook.Services.ProjectService
 {
-    public class ProjectService
+    public class ProjectService: IProjectService
     {
         private readonly IMongoCollection<Project> _projects;
+        private readonly IConfiguration _configuration;
 
-        public ProjectService(IOptions<DatabaseSettings> settings)
+        public ProjectService(IConfiguration configuration)
         {
-            var client = new MongoClient(settings.Value.ConnectionString);
-            var database = client.GetDatabase(settings.Value.DatabaseName);
+            var client = new MongoClient(configuration.GetSection("DatabaseSettings:ConnectionString").Value);
+            var database = client.GetDatabase(configuration.GetSection("DatabaseSettings:DatabaseName").Value);
 
-            _projects = database.GetCollection<Project>(settings.Value.ProjectsCollectionName);
+            _projects = database.GetCollection<Project>(configuration.GetSection("DatabaseSettings:ProjectsCollectionName").Value);
+            _configuration = configuration;
         }
 
         public List<Project> Get() =>

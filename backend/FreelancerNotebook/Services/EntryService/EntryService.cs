@@ -1,21 +1,21 @@
 using FreelancerNotebook.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace FreelancerNotebook.Services
+namespace FreelancerNotebook.Services.EntryService
 {
-    public class EntryService
+    public class EntryService : IEntryService
     {
         private readonly IMongoCollection<Entry> _entries;
+        private readonly IConfiguration _configuration;
 
-        public EntryService(IOptions<DatabaseSettings> settings)
+        public EntryService(IConfiguration configuration)
         {
-            var client = new MongoClient(settings.Value.ConnectionString);
-            var database = client.GetDatabase(settings.Value.DatabaseName);
+            var client = new MongoClient(configuration.GetSection("DatabaseSettings:ConnectionString").Value);
+            var database = client.GetDatabase(configuration.GetSection("DatabaseSettings:DatabaseName").Value);
 
-            _entries = database.GetCollection<Entry>(settings.Value.EntriesCollectionName);
+            _entries = database.GetCollection<Entry>(configuration.GetSection("DatabaseSettings:EntriesCollectionName").Value);
+            _configuration = configuration;
         }
 
         public List<Entry> Get() =>

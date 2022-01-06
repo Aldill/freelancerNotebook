@@ -1,17 +1,20 @@
 using FreelancerNotebook.Models;
 using FreelancerNotebook.Services;
+using FreelancerNotebook.Services.EntryService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace FreelancerNotebook.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class EntriesController : ControllerBase
     {
-        private readonly EntryService _entryService;
+        private readonly IEntryService _entryService;
 
-        public EntriesController(EntryService entryService)
+        public EntriesController(IEntryService entryService)
         {
             _entryService = entryService;
         }
