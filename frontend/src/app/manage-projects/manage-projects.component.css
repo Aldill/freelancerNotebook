@@ -3,114 +3,79 @@ body{
 }
 .mat-toolbar{
     
-    background-color: #799c53;
-    overflow: hidden;
-    height: 1cm;
-    
+  background-color: #799c53;
+  overflow: hidden;
+  height: 1cm;
+  
 }
 
 .mat-sidenav{
-    background-color:#6666CC;
-    width: 4cm;
+  background-color:#6666CC;
+  width: 4cm;
 
 }
 ::ng-deep .menu {
-    background-color: #799c53; 
-  }
+  background-color: #799c53; 
+}
 
 
 .mat-flat-button{
-    background-color: #799c53;
-    color: white;
-    
+  background-color: #799c53;
+  color: white;
+  
 
 }
 
 .image{ 
-    height:100%;
-    
-
-    background: url('../../img/4009727.jpg') no-repeat center center fixed ;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  height:100%;
   
+
+  background: url('../../img/4009727.jpg') no-repeat center center fixed ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
 
 
 }
 .mat-expansion-panel{   
-    background-color:#6666CC;
-    width: 98%;
-    padding: 10px;
-    margin: 10px;
+  background-color:#6666CC;
+  width: 98%;
+  padding: 10px;
+  margin: 10px;
 
 }
 
 .mat-form-field  {
 
-    width: 100cm;
-
-
-  }
-
-  .details{
-    right: -500px;
-    background-color: #799c53; 
-
-  }
-  mat-paginator{
-    background-color: #799c53;
-    padding: 0px;
-  }
-mat-card{
-  width: auto;
-  height: auto;
-  padding: 0px;
-  top:  -20%;
-  right: -30%;
-    background-color: transparent;
-    outline:none;
-    margin: 0px;
-
+  width: 100cm;
 
 }
-@media only screen and (max-width: 600px) {
-  mat-card{
-      width:90%;
-      top:  0px;
-      right: 0px;
-  
-  }
-  .mat-expansion-panel{   
-    background-color:#6666CC;
-    width: 90%;
-    padding: 10px;
-    margin: 10px;
+
+.details{
+  right: -70%;
+  background-color: #799c53; 
 
 }
 mat-paginator{
-height: 1cm;
+  background-color: #799c53;
+  padding: 0px;
 }
-.details{
-  width: 0px;
-  right: -20px;
+mat-card{
+  width: 80%;
+   background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+  top:  0px;
+  right: -80px;
 
 }
-.edit{
-  visibility: hidden;
-    
-    }
-    .image{ 
-      height:100%;}
-}
-
-@media only screen and (max-width: 1025px) and (min-width: 600px) {
-  mat-card{
+@media only screen and (max-width: 600px) {
+mat-card{
     width:90%;
     top:  0px;
     right: 0px;
-
 
 }
 .mat-expansion-panel{   
@@ -121,17 +86,42 @@ height: 1cm;
 
 }
 mat-paginator{
-height: 1.5cm;
+height: 1cm;
 }
 .details{
 width: 0px;
-right: -200px;
+right: -20px;
 
 }
 .edit{
 visibility: hidden;
   
   }
-  .image{ 
-    height:100%;}
+}
+
+@media only screen and (max-width: 1025px) and (min-width: 600px) {
+mat-card{
+  width:95%;
+    top:  0px;
+    right: 0px;
+
+}
+.mat-expansion-panel{   
+  background-color:#6666CC;
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+
+}
+mat-paginator{
+height: 1cm;
+}
+.details{
+right: -50%;
+
+}
+.edit{
+visibility: hidden;
+
+}
 }
