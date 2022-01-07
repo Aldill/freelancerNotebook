@@ -20,6 +20,8 @@ namespace FreelancerNotebook.Models
         public DateTime EndDate { get; set; } 
         [BsonElement("Description")]
         public string Description { get; set; } = null!;
+        [BsonElement("Tags")]
+        public List<string> Tags {get;set;} = null!;
     }    
     
     
