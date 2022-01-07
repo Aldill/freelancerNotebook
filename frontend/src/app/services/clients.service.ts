@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Client } from '../models/Client';
+import { StaticResponse } from '../models/StaticResponse';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +23,7 @@ export class ClientsService {
     phone: string;
   }): Observable<string> {
     return this.httpClient
-      .post<Client>(this.serviceEndpoint, { name, mail, phone })
-      .pipe(map((data) => data.id));
+      .post<StaticResponse<Client>>(this.serviceEndpoint, { name, mail, phone })
+      .pipe(map(({ data }) => data[0].id));
   }
 }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Project } from '../models/Projects';
 import { map, tap } from 'rxjs/operators';
+import { StaticResponse } from '../models/StaticResponse';
 
 @Injectable({
   providedIn: 'root',
@@ -18,11 +19,14 @@ export class ProjectsService {
   }
 
   getAllProjects(): Observable<Project[]> {
-    return this.httpClient.get<Project[]>(this.serviceEndpoint).pipe(
-      tap((data) => {
-        this.projects = data;
-      })
-    );
+    return this.httpClient
+      .get<StaticResponse<Project>>(this.serviceEndpoint)
+      .pipe(
+        tap((data) => {
+          this.projects = data.data;
+        }),
+        map((data) => data.data)
+      );
   }
 
   createNewProject(
@@ -40,7 +44,6 @@ export class ProjectsService {
       deadline,
       clientId: clientId.toString(),
       date: currentDate.toISOString(),
-      userId: '123456790',
     });
   }
 }

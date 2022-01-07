@@ -46,11 +46,17 @@ namespace FreelancerNotebook.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Project> Create(Project project)
+        public ActionResult<Project> Create(ProjectDTO project)
         {
-            _projectService.Create(project);
+            var userId = userService.getUserId();
+            var newProject = _projectService.Create(new Project { UserId = userId.ToString(), ClientId = project.ClientId, Date = project.Date, Deadline = project.Deadline,  Description = project.Description, Title=project.Title});
 
-            return CreatedAtRoute("GetProject", new { id = project.Id.ToString() }, new Response<Project>(new List<Project> { project}, "success"));
+            if(newProject == null)
+            {
+                return BadRequest(); 
+            }
+
+            return CreatedAtRoute("GetProject", new { id = newProject.Id.ToString() }, new Response<Project>(new List<Project> { newProject }, "success"));
         }
 
         [HttpPut("{id:length(24)}")]

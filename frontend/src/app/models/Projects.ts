@@ -1,10 +1,10 @@
 export interface Project {
-  id: string;
+  id?: string;
   title: string;
   description: string;
   date: string;
   deadline: string;
   defaultRate: number;
   clientId: string;
-  userId: string;
+  userId?: string;
 }

@@ -43,6 +43,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LoginService } from './services/login.service';
+import { CookieService } from 'ngx-cookie-service';
 export const customCurrencyMaskConfig = {
   align: 'left',
   allowNegative: true,
@@ -105,6 +106,7 @@ export const customCurrencyMaskConfig = {
   ],
   providers: [
     ProjectsService,
+    CookieService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
