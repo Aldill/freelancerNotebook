@@ -1,9 +1,7 @@
 using FreelancerNotebook.Models;
-using FreelancerNotebook.Services;
 using FreelancerNotebook.Services.ClientService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 namespace FreelancerNotebook.Controllers
 {
@@ -20,8 +18,13 @@ namespace FreelancerNotebook.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Client>> Get() =>
-            _clientService.Get();
+        public ActionResult<List<Client>> Get()
+        {
+            var clients = _clientService.Get();
+
+            return Ok( new Response<Client>(clients, "success"));
+        }
+            
 
         [HttpGet("{id:length(24)}", Name = "GetClient")]
         public ActionResult<Client> Get(string id)
@@ -33,15 +36,15 @@ namespace FreelancerNotebook.Controllers
                 return NotFound();
             }
 
-            return client;
+            return Ok(new Response<Client>(new List<Client> { client }, "success"));
         }
 
         [HttpPost]
         public ActionResult<Client> Create(Client client)
         {
-            _clientService.Create(client);
+            var data = _clientService.Create(client);
 
-            return CreatedAtRoute("GetClient", new { id = client.Id.ToString() }, client);
+            return CreatedAtRoute("GetClient", new { id = client.Id.ToString() }, new Response<Client>(new List<Client> { data }, "success"));
         }
 
         [HttpPut("{id:length(24)}")]

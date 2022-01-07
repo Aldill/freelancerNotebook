@@ -30,15 +30,24 @@ namespace FreelancerNotebook.Controllers
             {
                 return Unauthorized();
             }
-            return Ok(new { token });
+            var data = new List<string>
+            {
+                token
+            };
+            return Ok(new Response<string>(data, "success"));
         }
 
         [HttpGet, Authorize]
         public ActionResult Test()
         {
             var test = _userService.getUserId();
-            
-            return Ok(test);
+
+            var data = new List<string>
+            {
+                test
+            };
+
+            return Ok(new Response<string>(data, "success"));
         }
 
 

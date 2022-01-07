@@ -23,8 +23,13 @@ namespace FreelancerNotebook.Controllers
         
 
         [HttpGet]
-        public ActionResult<List<User>> Get() =>
-            _userService.Get();
+        public ActionResult<List<User>> Get()
+        {
+            var users = _userService.Get();
+
+            return Ok(new Response<User>(users, "success"));
+        }
+           
 
         [HttpGet("{id:length(24)}", Name = "GetUser")]
         public ActionResult<User> Get(string id)
@@ -36,7 +41,7 @@ namespace FreelancerNotebook.Controllers
                 return NotFound();
             }
 
-            return user;
+            return Ok(new Response<User>(new List<User> { user }, "success"));
         }
 
         [HttpPost]
@@ -44,7 +49,7 @@ namespace FreelancerNotebook.Controllers
         {
             _userService.Create(user);
 
-            return CreatedAtRoute("GetUser", new { id = user.Id.ToString() }, user);
+            return CreatedAtRoute("GetUser", new { id = user.Id.ToString() }, new Response<User>(new List<User> { user }, "success"));
         }
 
         [HttpPut("{id:length(24)}")]

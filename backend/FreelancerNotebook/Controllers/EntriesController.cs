@@ -19,9 +19,15 @@ namespace FreelancerNotebook.Controllers
             _entryService = entryService;
         }
 
-        [HttpGet]
-        public ActionResult<List<Entry>> GetbyProject(string pId) =>
-            _entryService.GetbyProject(pId);
+        [HttpGet("project/{id:length(24)}")]
+        public ActionResult<List<Entry>> GetbyProject(string id)
+        {
+            var entries = _entryService.GetbyProject(id);
+
+            return Ok(new Response<Entry>(entries, "success"));
+
+        }
+            
 
         [HttpGet("{id:length(24)}", Name = "GetEntry")]
         public ActionResult<Entry> Get(string id)
@@ -33,15 +39,15 @@ namespace FreelancerNotebook.Controllers
                 return NotFound();
             }
 
-            return entry;
+            return Ok(new Response<Entry>(new List<Entry> { entry}, "success"));
         }
 
         [HttpPost]
         public ActionResult<Entry> Create(Entry entry)
         {
-            _entryService.Create(entry);
+            var data = _entryService.Create(entry);
 
-            return CreatedAtRoute("GetEntry", new { id = entry.Id.ToString() }, entry);
+            return CreatedAtRoute("GetEntry", new { id = entry.Id.ToString() }, new Response<Entry>(new List<Entry> { data }, "success"));
         }
 
         [HttpPut("{id:length(24)}")]
@@ -74,6 +80,7 @@ namespace FreelancerNotebook.Controllers
             return NoContent();
         }
 
+        [HttpDelete("project/{id:length(24)}")]
         public IActionResult DeletebyProject(string pId)
         {
             var entries = _entryService.GetbyProject(pId);
@@ -83,8 +90,10 @@ namespace FreelancerNotebook.Controllers
                 return NotFound();
             }
             foreach(Entry x in entries)
-            _entryService.Remove(x.Id);
-
+            {
+                _entryService.Remove(x.Id);
+            }
+            
             return NoContent();
         }
     }

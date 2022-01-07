@@ -1,6 +1,7 @@
 using FreelancerNotebook.Models;
 using FreelancerNotebook.Services;
 using FreelancerNotebook.Services.ProjectService;
+using FreelancerNotebook.Services.UserService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -13,15 +14,23 @@ namespace FreelancerNotebook.Controllers
     public class ProjectsController : ControllerBase
     {
         private readonly IProjectService _projectService;
+        private readonly IUserService userService;
 
-        public ProjectsController(IProjectService projectService)
+        public ProjectsController(IProjectService projectService, IUserService userService)
         {
             _projectService = projectService;
+            this.userService = userService;
         }
 
         [HttpGet]
-        public ActionResult<List<Project>> GetbyUser(string uId) =>
-            _projectService.GetbyUser(uId);
+        public ActionResult<List<Project>> GetbyUser()
+        {
+            var userId = userService.getUserId();
+            var projects = _projectService.GetbyUser(userId);
+
+            return Ok(new Response<Project>(projects, "success"));
+        }
+            
 
         [HttpGet("{id:length(24)}/details", Name = "GetProject")]
         public ActionResult<Project> Get(string id)
@@ -33,7 +42,7 @@ namespace FreelancerNotebook.Controllers
                 return NotFound();
             }
 
-            return project;
+            return Ok(new Response<Project>(new List<Project> { project}, "success"));
         }
 
         [HttpPost]
@@ -41,7 +50,7 @@ namespace FreelancerNotebook.Controllers
         {
             _projectService.Create(project);
 
-            return CreatedAtRoute("GetProject", new { id = project.Id.ToString() }, project);
+            return CreatedAtRoute("GetProject", new { id = project.Id.ToString() }, new Response<Project>(new List<Project> { project}, "success"));
         }
 
         [HttpPut("{id:length(24)}")]
@@ -74,6 +83,7 @@ namespace FreelancerNotebook.Controllers
             return NoContent();
         }
 
+        [HttpDelete("user/{id:length(24)}")]
         public IActionResult DeletebyUser(string uId)
         {
             var projects = _projectService.GetbyUser(uId);
@@ -83,7 +93,10 @@ namespace FreelancerNotebook.Controllers
                 return NotFound();
             }
             foreach(Project x in projects)
-            _projectService.Remove(x.Id);
+            {
+                _projectService.Remove(x.Id);
+            }
+            
 
             return NoContent();
         }
