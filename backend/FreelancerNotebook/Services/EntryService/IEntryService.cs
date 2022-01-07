@@ -4,7 +4,7 @@ namespace FreelancerNotebook.Services.EntryService
 {
     public interface IEntryService
     {
-        List<Entry> Get();
+        List<Entry> GetbyProject(string pId);
         Entry Get(string id);
 
         Entry Create(Entry client);

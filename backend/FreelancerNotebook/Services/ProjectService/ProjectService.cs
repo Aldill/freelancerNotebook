@@ -20,8 +20,8 @@ namespace FreelancerNotebook.Services.ProjectService
             _configuration = configuration;
         }
 
-        public List<Project> Get() =>
-            _projects.Find(project => true).ToList();
+        public List<Project> GetbyUser(string uId) =>
+            _projects.Find(project => project.UserId == uId).ToList();
 
         public Project Get(string id) =>
             _projects.Find<Project>(project => project.Id == id).FirstOrDefault();

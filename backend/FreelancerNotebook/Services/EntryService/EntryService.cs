@@ -18,8 +18,8 @@ namespace FreelancerNotebook.Services.EntryService
             _configuration = configuration;
         }
 
-        public List<Entry> Get() =>
-            _entries.Find(entry => true).ToList();
+        public List<Entry> GetbyProject(string pId) =>
+            _entries.Find(entry => entry.ProjectId == pId).ToList();
 
         public Entry Get(string id) =>
             _entries.Find<Entry>(entry => entry.Id == id).FirstOrDefault();

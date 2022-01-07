@@ -4,7 +4,7 @@ namespace FreelancerNotebook.Services.ProjectService
 {
     public interface IProjectService
     {
-        List<Project> Get();
+        List<Project> GetbyUser(string uId);
         Project Get(string id);
 
         Project Create(Project project);
