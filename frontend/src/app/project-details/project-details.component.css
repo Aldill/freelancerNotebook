@@ -1,3 +1,6 @@
+body{
+  overflow: hidden;
+}
 .mat-toolbar{
     
     background-color: #799c53;
@@ -24,7 +27,7 @@
 }
 
 .image{ 
-    height:93.8%;
+    height:100%;
     
 
     background: url('../../img/4009727.jpg') no-repeat center center fixed ;
@@ -38,36 +41,56 @@
 }
 .mat-expansion-panel{   
     background-color:#6666CC;
-    width: 28cm;
+    width: 80%;
     padding: 10px;
     margin: 10px;
-    
     height: 100%;
+    right: 20px;
+
 
 }
 
 
   .edit{
-    right: -500px;
+    right: -140px;
     background-color: #799c53; 
 
   }
-  .details{
-    right: -300px;
+
+  .all{
+    right: -150px;
     background-color: rgba(255, 217, 0, 0.767);
 
   }
 mat-card{
-    width: 29cm;
-    height: 80%;
+    width: 100%;
+    height: fit-content;
     background-color: transparent;
     padding: 0px;
     margin: 0px;
+    right: -200px;
 
-    right: -80px;
 
 }
+
+#entries{
+  background-color: #799c53; 
+  width: 100%;
+  height: 100%;
+
+}
+
 @media only screen and (max-width: 600px) {
+
+  #entries{
+    background-color: #799c53; 
+    width: 100%;
+    padding: 5px;
+    margin-left: -1px;
+    height: 100%;
+  
+  }
+  
   mat-card{
       width:90%;
       top:  0px;
@@ -76,22 +99,20 @@ mat-card{
   }
   .mat-expansion-panel{   
     background-color:#6666CC;
-    width: 90%;
+    width: 100%;
     padding: 10px;
-    margin: 10px;
+    margin-left: -10px;
+    right: 0px;
+}
 
-}
-mat-paginator{
-height: 1cm;
-}
 .details{
-visibility: hidden;
-
+  right: 5px;
+width: 1px;
 
 }
 .edit{
   width: 0px;
-  right: -25px;
+  right: 0px;
     
     }
 
@@ -113,17 +134,24 @@ visibility: hidden;
     width: 90%;
     padding: 10px;
     margin: 10px;
+    
 
 }
 
   .edit{
     width: 100px;
-    right: -230px;
+    right: 0px;
 
   
   }
+
+  .all{
+
+    right: -10px;
+  }
   .image{ 
-    height:100%;}
+    height:100%;
+   }
 
 
 }

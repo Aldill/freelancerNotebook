@@ -1,13 +1,19 @@
+
 .mat-toolbar{
     background-color: #799c53;
     overflow: hidden;
     height: 1cm;
+    overflow: hidden;
     
 }
+body{
 
+    overflow: hidden;
+}
 .mat-sidenav{
     background-color:#6666CC;
     width: 4cm;
+    
 
 }
 ::ng-deep .menu {
@@ -25,7 +31,9 @@
 }
 
 .image{ 
-    height:93.8%;
+    height:100%;
+    overflow: hidden;
+    
     
 
     background: url('../../img/girl with laptop.jpg') no-repeat center center fixed ;
@@ -38,18 +46,21 @@
 
 }
 
-
 textarea{
     font-size:xx-large;
     text-align: center;
+    overflow: hidden;
+    
 }
-
 
 mat-card{
     background-color: rgba(255, 217, 0, 0.295);
-
-    top:  -120px;
-    right: -430px;
+    overflow: hidden;
+    width: auto+15px;
+    height: auto;
+    padding: 0px;
+    top:  -20%;
+    right: -30%;
 
 }
 @media only screen and (max-width: 600px)  {

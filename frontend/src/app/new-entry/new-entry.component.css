@@ -1,3 +1,6 @@
+body{
+    overflow: hidden;
+}
 .mat-toolbar{
     background-color: #799c53;
     overflow: hidden;
@@ -28,7 +31,7 @@
 }
 
 .image{ 
-    height:93.8%;
+    height:100%;
 
     background: url('../../img/girl with laptop.jpg') no-repeat center center fixed ;
     -webkit-background-size: cover;
@@ -42,6 +45,7 @@
 mat-form-field {
 
     width: 100%;
+    height: 100%;
   }
 
   ::ng-deep .mat-horizontal-stepper-header-container {
@@ -49,13 +53,16 @@ mat-form-field {
   }
 
 mat-card{
+    width: 30%;
+    height: auto;
     padding: 0px;
-    top:  -25px;
-    right: -430px;
-
+    top:  -18%;
+    right: -30%;
 
 }
-
+#time{
+    width: 30%;
+}
 @media only screen and (max-width: 600px) {
     mat-card{
         background-color:#6666CC;

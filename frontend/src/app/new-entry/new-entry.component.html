@@ -1,3 +1,4 @@
+<body>
 <mat-toolbar>
   <button mat-flat-button (click)="sidenav.toggle()">
     <mat-icon>menu</mat-icon>
@@ -55,13 +56,30 @@
                 cdkTextareaAutosize
                 cdkAutosizeMinRows="4"></textarea>
             </mat-form-field>
-            <mat-form-field color="accent">
-              <input
+           
+              <p>How long will be your new entry?</p>
+              <mat-form-field flcolor="accent">
+              <input id = "time" 
                 matInput
-                type="time"
+                type="number" min=0 max=23 
                 ng-show="!showForm"
-                placeholder="How long will be your new entry?" />
+                value= 00 />
+      
+                <input id = "time" 
+                matInput
+                type="number" min=0 max=59 
+                ng-show="!showForm"
+                value= 00 />
+        
+      
+            <input id = "time" 
+            matInput
+            type="number" min=0 max=59 
+            ng-show="!showForm"
+            value= 00 />
+
             </mat-form-field>
+            
 
             <section class="example-section">
               <label class="example-margin"></label>
@@ -166,3 +184,4 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+</body>

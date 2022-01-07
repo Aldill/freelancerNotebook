@@ -1,3 +1,6 @@
+body{
+  overflow: hidden;
+}
 .mat-toolbar{
     background-color: #799c53;
     overflow: hidden;
@@ -21,7 +24,7 @@
 }
 
 .image{ 
-    height:93.8%;
+    height:100%;
     background-color:hsl(240, 50%, 60%);
    background: url('../../img/girl with laptop.jpg') no-repeat center center fixed ;
     -webkit-background-size: cover;
@@ -31,13 +34,19 @@
   
 }
 
-
+mat-card{
+  width: auto;
+  height: auto;
+  top:  -20%;
+  right: -30%;
+}
   
 
 textarea{
     font-size:xx-large;
     text-align: center;
 }
+
 mat-icon{
 margin : 0cm;
 
@@ -55,7 +64,7 @@ margin : 0cm;
     top:  0px;
     right: 0px;
     width: 100%;
-    height:95.65%;
+    height:100%;
   } 
 
   @media only screen and (max-width: 600px) {

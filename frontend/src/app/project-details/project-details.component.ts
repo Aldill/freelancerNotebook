@@ -31,6 +31,11 @@ export class ProjectDetailsComponent implements OnInit {
     this.dialog.open(DialogElementsExampleDialog);
   }
 
+  
+  openSummary() {
+    this.dialog.open(Summary);
+  }
+
 }
 
 @Component({
@@ -38,5 +43,11 @@ export class ProjectDetailsComponent implements OnInit {
   templateUrl: '../dialog-elements-example-dialog.html',
 })
 export class DialogElementsExampleDialog {}
+
+@Component({
+  selector: 'summary',
+  templateUrl: '../summary.html',
+})
+export class Summary {}
 
    
