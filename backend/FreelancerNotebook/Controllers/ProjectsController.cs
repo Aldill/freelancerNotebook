@@ -20,8 +20,8 @@ namespace FreelancerNotebook.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Project>> Get() =>
-            _projectService.Get();
+        public ActionResult<List<Project>> GetbyUser(string uId) =>
+            _projectService.GetbyUser(uId);
 
         [HttpGet("{id:length(24)}/details", Name = "GetProject")]
         public ActionResult<Project> Get(string id)
@@ -70,6 +70,20 @@ namespace FreelancerNotebook.Controllers
             }
 
             _projectService.Remove(project.Id);
+
+            return NoContent();
+        }
+
+        public IActionResult DeletebyUser(string uId)
+        {
+            var projects = _projectService.GetbyUser(uId);
+
+            if (projects == null)
+            {
+                return NotFound();
+            }
+            foreach(Project x in projects)
+            _projectService.Remove(x.Id);
 
             return NoContent();
         }

@@ -17,6 +17,8 @@ namespace FreelancerNotebook.Models
         public string Username{get;set;} = null!;
         [BsonElement("Password")]
         public string Password { get; set; } = null!;
+        [BsonElement("CreatedAt")]
+        public DateTime CreatedAt { get; set; }
     }    
     
     public class AuthenticateUser
