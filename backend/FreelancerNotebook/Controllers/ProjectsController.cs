@@ -32,7 +32,7 @@ namespace FreelancerNotebook.Controllers
         }
             
 
-        [HttpGet("{id:length(24)}/details", Name = "GetProject")]
+        [HttpGet("{id:length(24)}", Name = "GetProject")]
         public ActionResult<Project> Get(string id)
         {
             var project = _projectService.Get(id);

@@ -29,6 +29,12 @@ export class ProjectsService {
       );
   }
 
+  getProject(id: string): Observable<Project[]> {
+    return this.httpClient
+      .get<StaticResponse<Project>>(`${this.serviceEndpoint}/${id}`)
+      .pipe(map((data) => data.data));
+  }
+
   createNewProject(
     {
       name,

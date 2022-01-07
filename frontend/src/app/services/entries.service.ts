@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Entry } from '../models/Entry';
+import { StaticResponse } from '../models/StaticResponse';
 
 @Injectable({
   providedIn: 'root',
@@ -36,5 +38,11 @@ export class EntriesService {
       isFlatFee,
       endDate: new Date(currentDate.getTime() + 150000 * 60000).toISOString(),
     });
+  }
+
+  getEntriesFromProject(id: string): Observable<Entry[]> {
+    return this.httpClient
+      .get<StaticResponse<Entry>>(`${this.serviceEndpoint}/project/${id}`)
+      .pipe(map((data) => data.data));
   }
 }
