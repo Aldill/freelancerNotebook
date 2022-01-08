@@ -7,6 +7,10 @@ namespace FreelancerNotebook.Services.UserService
         List<User> Get();
         User Get(string id);
 
+        User GetbyUsername(string username);
+
+        User GetbyMail(string mail);
+
         User Create(User user);
 
         void Update(string id, User user);
