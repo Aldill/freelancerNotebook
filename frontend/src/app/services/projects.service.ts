@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Project } from '../models/Projects';
-import { map, tap } from 'rxjs/operators';
+import { map, mapTo, tap } from 'rxjs/operators';
 import { StaticResponse } from '../models/StaticResponse';
 
 @Injectable({
@@ -33,6 +33,21 @@ export class ProjectsService {
     return this.httpClient
       .get<StaticResponse<Project>>(`${this.serviceEndpoint}/${id}`)
       .pipe(map(({ data }) => data as Project));
+  }
+
+  updateProject(
+    projectId: string,
+    data: { title: string; description: string }
+  ): Observable<boolean> {
+    return this.httpClient
+      .put(`${this.serviceEndpoint}/${projectId}`, data)
+      .pipe(map(() => true));
+  }
+
+  deleteAllProjects(): Observable<boolean> {
+    return this.httpClient
+      .delete(`${this.serviceEndpoint}/user`)
+      .pipe(mapTo(true));
   }
 
   createNewProject(

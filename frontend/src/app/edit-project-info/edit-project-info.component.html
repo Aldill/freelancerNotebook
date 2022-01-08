@@ -1,72 +1,67 @@
 <body>
-<mat-toolbar>
-  <button mat-flat-button (click)="sidenav.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-</mat-toolbar>
-<mat-sidenav-container [hasBackdrop]="false" class="image">
-  <mat-sidenav #sidenav [opened]="disableClose" [disableClose]="disableClose">
-    <mat-nav-list>
-      <a mat-list-item
-        ><button mat-flat-button type="submit" routerLink="/account">
-          ACCOUNT
-        </button></a
-      >
-      <a mat-list-item routerLink="/new-entry">New entry</a>
-      <a mat-list-item routerLink="/new-project">New project</a>
-      <a mat-list-item routerLink="/manage-projects">Manage projects</a>
-      <a mat-list-item routerLink="/settings">Settings</a>
+  <mat-toolbar>
+    <button mat-flat-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-sidenav-container [hasBackdrop]="false" class="image">
+    <mat-sidenav #sidenav [opened]="disableClose" [disableClose]="disableClose">
+      <mat-nav-list>
+        <a mat-list-item
+          ><button mat-flat-button type="submit" routerLink="/account">
+            ACCOUNT
+          </button></a
+        >
+        <a mat-list-item routerLink="/new-entry">New entry</a>
+        <a mat-list-item routerLink="/new-project">New project</a>
+        <a mat-list-item routerLink="/manage-projects">Manage projects</a>
+        <a mat-list-item routerLink="/settings">Settings</a>
 
-      <a href="mailto:juliaols88@gmail.com"
-        ><a mat-list-item>Send feedback</a></a
-      >
+        <a href="mailto:juliaols88@gmail.com"
+          ><a mat-list-item>Send feedback</a></a
+        >
 
-      <a mat-list-item (click)="openDialog()"> About</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div fxLayoutAlign="center center" fxFlexFill class="main-div">
-      <mat-card>
-        <mat-accordion>
-          <mat-expansion-panel disabled expanded>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <textarea
-                  matInput
-                  placeholder="Project title"
-                  cdkTextareaAutosize
-                  cdkAutosizeMinRows="1"
-                  cdkAutosizeMaxRows="1"
-                >
-Project title</textarea
-                >
-              </mat-panel-title>
-              <mat-panel-description>
-                <textarea
-                  matInput
-                  placeholder="Project description"
-                  cdkTextareaAutosize
-                  cdkAutosizeMinRows="1"
-                  cdkAutosizeMaxRows="1"
-                >
-Project description</textarea
-                >
+        <a mat-list-item (click)="openDialog()"> About</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div fxLayoutAlign="center center" fxFlexFill class="main-div">
+        <mat-card>
+          <mat-accordion *ngIf="project$ | async as project">
+            <mat-expansion-panel disabled expanded>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <textarea
+                    matInput
+                    [(ngModel)]="projectChangedValues.title"
+                    placeholder="Project title"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="1">
+                  </textarea>
+                </mat-panel-title>
+                <mat-panel-description>
+                  <textarea
+                    matInput
+                    [(ngModel)]="projectChangedValues.description"
+                    placeholder="Project description"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="1"></textarea>
 
-                <button
-                  mat-flat-button
-                  type="submit"
-                  class="edit"
-                  routerLink="/project-details"
-                >
-                  <mat-icon>save</mat-icon>
-                </button>
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-            <p>PROJECT DETAILS</p>
-          </mat-expansion-panel>
-        </mat-accordion>
-      </mat-card>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+                  <button
+                    mat-flat-button
+                    type="submit"
+                    class="edit"
+                    (click)="updateProjectData(project.id)">
+                    <mat-icon>save</mat-icon>
+                  </button>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </mat-card>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </body>

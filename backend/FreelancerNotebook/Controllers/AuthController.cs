@@ -28,7 +28,7 @@ namespace FreelancerNotebook.Controllers
             var token = _authService.Authenticate(user.Username, user.Password);
             if (token == null)
             {
-                return Unauthorized();
+                return NotFound(new Response<string>("error.badLoginCredentials"));
             }
             
             return Ok(new Response<string>(token, "success"));

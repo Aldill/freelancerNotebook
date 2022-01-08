@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginService } from '../services/login.service';
+import { ProjectsService } from '../services/projects.service';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -9,7 +10,11 @@ import { LoginService } from '../services/login.service';
 export class SettingsComponent implements OnInit {
   w = window.innerWidth;
   disableClose: boolean;
-  constructor(public dialog: MatDialog, private loginService: LoginService) {
+  constructor(
+    public dialog: MatDialog,
+    private loginService: LoginService,
+    private projectsService: ProjectsService
+  ) {
     if (this.w > 450) {
       this.disableClose = true;
     } else {
@@ -25,6 +30,10 @@ export class SettingsComponent implements OnInit {
   logout(): void {
     this.loginService.logout();
   }
+
+  deleteAllProjects(): void {
+    this.projectsService.deleteAllProjects().subscribe();
+  }
   clickMethod(name: string, action: string) {
     if (confirm('Are you sure you want to ' + action + ' ' + name)) {
       if (action == 'permanently delete') {
@@ -32,7 +41,7 @@ export class SettingsComponent implements OnInit {
       }
 
       if (action == 'permanently reset all your progress?') {
-        console.log('Implement reset functionality here');
+        this.deleteAllProjects();
       }
     }
   }

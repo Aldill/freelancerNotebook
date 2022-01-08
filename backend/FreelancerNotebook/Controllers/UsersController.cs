@@ -23,39 +23,62 @@ namespace FreelancerNotebook.Controllers
         
 
         [HttpGet]
-        public ActionResult<List<User>> Get()
+        public ActionResult<User> Get()
         {
-            var users = _userService.Get();
-
-            return Ok(new Response<List<User>>(users, "success"));
-        }
-           
-
-        [HttpGet("{id:length(24)}", Name = "GetUser")]
-        public ActionResult<User> Get(string id)
-        {
-            var user = _userService.Get(id);
+            var userId = _userService.getUserId();
+            var user = _userService.Get(userId);
 
             if (user == null)
             {
                 return NotFound();
             }
 
-            return Ok(new Response<User>( user , "success"));
+            return Ok(new Response<User>(user, "success"));
+        }
+
+        [HttpGet("details")]
+        public ActionResult<User> GetSummary()
+        {
+            var userId = _userService.getUserId();
+            var user = _userService.Get(userId);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(new Response<User>(user, "success"));
+        }
+
+        [HttpPatch("password")]
+        public ActionResult<User> UpdatePassword(ChangePassword passwords)
+        {
+            var userId = _userService.getUserId();
+            var user = _userService.Get(userId);
+            if (user.Password != passwords.Old)
+            {
+                return Conflict(new Response<string>("error.wrongOldPassword"));
+            }
+
+            user.Password = passwords.New; // :(( how bad is this?
+
+            _userService.UpdatePassword(userId, user);
+
+            return NoContent();
         }
 
         [HttpPost, AllowAnonymous]
         public ActionResult<User> Create(User user)
         {
            var checkuser = _userService.GetbyUsername(user.Username);
-             if (user != null)
+             if (checkuser != null)
             {
-                return NoContent();
+                return Conflict(new Response<string>("error.usernameTaken"));
             }
             checkuser = _userService.GetbyMail(user.Mail);
-              if (user != null)
+              if (checkuser != null)
             {
-                return NoContent();
+                return Conflict(new Response<string>("error.mailTaken"));
             }
             _userService.Create(user);
 
@@ -66,6 +89,16 @@ namespace FreelancerNotebook.Controllers
         public IActionResult Update(string id, User userIn)
         {
             var user = _userService.Get(id);
+
+            if (user.Password != userIn.Password)
+            {
+                return Unauthorized(new Response<string>("error.wrongPassword"));
+            }
+
+            if (user.Username == userIn.Username)
+            {
+                return Conflict(new Response<string>("error.usernameTaken"));
+            }
 
             if (user == null)
             {

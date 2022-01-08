@@ -1,38 +1,37 @@
 <body>
-<div class="image">
-  <div fxLayoutAlign="center center" fxFlexFill class="main-div">
-    <mat-card>
-      <form id="form" fxLayout="column">
-        <mat-form-field color="accent">
-          <input
-            matInput
-            [(ngModel)]="user.username"
-            required
-            name="login"
-            minlength="4"
-            placeholder="Username" />
-        </mat-form-field>
-        <mat-form-field color="accent">
-          <input
-            matInput
-            [(ngModel)]="user.password"
-            type="password"
-            required
-            minlength="4"
-            placeholder="Password"
-            name="password" />
-        </mat-form-field>
-        {{ user | json }}
-        <button
-          mat-flat-button
-          type="submit"
-          color="accent"
-          (click)="loginUser()">
-          Login
-        </button>
-      </form>
-      <a routerLink="/signup">Not a user? Sign up!</a>
-    </mat-card>
+  <div class="image">
+    <div fxLayoutAlign="center center" fxFlexFill class="main-div">
+      <mat-card>
+        <form id="form" fxLayout="column">
+          <mat-form-field color="accent">
+            <input
+              matInput
+              [(ngModel)]="user.username"
+              required
+              name="login"
+              minlength="4"
+              placeholder="Username" />
+          </mat-form-field>
+          <mat-form-field color="accent">
+            <input
+              matInput
+              [(ngModel)]="user.password"
+              type="password"
+              required
+              minlength="4"
+              placeholder="Password"
+              name="password" />
+          </mat-form-field>
+          <button
+            mat-flat-button
+            type="submit"
+            color="accent"
+            (click)="loginUser()">
+            Login
+          </button>
+        </form>
+        <a routerLink="/signup">Not a user? Sign up!</a>
+      </mat-card>
+    </div>
   </div>
-</div>
 </body>

@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'new-entry', component: NewEntryComponent, canActivate: [AuthGuard] },
   { path: 'timer', component: TimerComponent, canActivate: [AuthGuard] },
-  {path: 'empty', component: EmptyProjectsComponent},
+  { path: 'empty', component: EmptyProjectsComponent },
   {
     path: 'new-project',
     component: NewProjectComponent,
@@ -49,7 +49,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'edit-project-info',
+    path: 'edit-project-info/:id',
     component: EditProjectInfoComponent,
     canActivate: [AuthGuard],
   },

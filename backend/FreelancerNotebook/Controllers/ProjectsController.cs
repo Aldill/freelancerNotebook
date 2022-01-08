@@ -89,10 +89,11 @@ namespace FreelancerNotebook.Controllers
             return NoContent();
         }
 
-        [HttpDelete("user/{id:length(24)}")]
-        public IActionResult DeletebyUser(string uId)
+        [HttpDelete("user")]
+        public IActionResult DeletebyUser()
         {
-            var projects = _projectService.GetbyUser(uId);
+            var userId = userService.getUserId();
+            var projects = _projectService.GetbyUser(userId);
 
             if (projects == null)
             {

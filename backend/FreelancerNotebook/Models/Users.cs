@@ -28,5 +28,13 @@ namespace FreelancerNotebook.Models
         [BsonElement("Password")]
         public string Password { get; set; } = string.Empty;
     }
-    
+
+    public class ChangePassword
+    {
+        [BsonElement("Old")]
+        public string Old { get; set; } = string.Empty;
+        [BsonElement("New")]
+        public string New { get; set; } = string.Empty;
+    }
+
 }

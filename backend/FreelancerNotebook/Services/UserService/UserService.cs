@@ -55,9 +55,11 @@ namespace FreelancerNotebook.Services.UserService
             return user;
         }
 
-        
-
-        
+        public User UpdatePassword(string id, User userIn)
+        {
+            _users.ReplaceOne(user => user.Id == id, userIn);
+            return userIn;
+        }
         public void Update(string id, User userIn) =>
             _users.ReplaceOne(user => user.Id == id, userIn);
 

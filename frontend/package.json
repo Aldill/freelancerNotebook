@@ -1,6 +1,6 @@
 {
-  "name": "login-app",
-  "version": "0.0.0",
+  "name": "freelaceNotebook",
+  "version": "0.5.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

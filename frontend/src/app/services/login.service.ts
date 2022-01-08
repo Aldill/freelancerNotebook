@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable, throwError } from 'rxjs';
@@ -15,7 +16,8 @@ export class LoginService {
   constructor(
     private httpClient: HttpClient,
     private cookieService: CookieService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
     this.userToken = cookieService.get('token') ?? '';
   }
@@ -42,7 +44,13 @@ export class LoginService {
           );
           this.router.navigate(['/home']);
         }),
-        map(({ data }) => data as string)
+
+        map(({ data }) => data as string),
+        catchError((errorResponse) => {
+          const handledError = errorResponse.error;
+          this.snackBar.open(handledError.error, 'close');
+          return throwError(errorResponse);
+        })
       );
   }
 
