@@ -45,6 +45,10 @@ namespace FreelancerNotebook.Services.UserService
         public User Get(string id) =>
             _users.Find<User>(user => user.Id == id).FirstOrDefault();
 
+        public User GetbyUsername(string username) =>
+            _users.Find<User>(user => user.Username == username).FirstOrDefault();
+        public User GetbyMail(string mail) =>
+            _users.Find<User>(user => user.Mail== mail).FirstOrDefault();
         public User Create(User user)
         {
             _users.InsertOne(user);

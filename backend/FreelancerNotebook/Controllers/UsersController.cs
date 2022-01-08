@@ -47,6 +47,16 @@ namespace FreelancerNotebook.Controllers
         [HttpPost, AllowAnonymous]
         public ActionResult<User> Create(User user)
         {
+           var checkuser = _userService.GetbyUsername(user.Username);
+             if (user != null)
+            {
+                return NoContent();
+            }
+            checkuser = _userService.GetbyMail(user.Mail);
+              if (user != null)
+            {
+                return NoContent();
+            }
             _userService.Create(user);
 
             return CreatedAtRoute("GetUser", new { id = user.Id.ToString() }, new Response<User>( user , "success"));
