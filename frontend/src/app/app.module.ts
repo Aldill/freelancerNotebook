@@ -45,6 +45,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LoginService } from './services/login.service';
 import { CookieService } from 'ngx-cookie-service';
 import { EntryTimePipe } from './pipes/entry-time.pipe';
+import { EmptyProjectsComponent } from './empty-projects/empty-projects.component';
 export const customCurrencyMaskConfig = {
   align: 'left',
   allowNegative: true,
@@ -75,6 +76,7 @@ export const customCurrencyMaskConfig = {
     EditProjectInfoComponent,
     AccountInfoComponent,
     EntryTimePipe,
+    EmptyProjectsComponent,
   ],
   imports: [
     BrowserModule,

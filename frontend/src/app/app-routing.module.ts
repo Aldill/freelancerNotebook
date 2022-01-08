@@ -14,12 +14,14 @@ import { ChangeUsernameComponent } from './change-username/change-username.compo
 import { EditProjectInfoComponent } from './edit-project-info/edit-project-info.component';
 import { AccountInfoComponent } from './account-info/account-info.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EmptyProjectsComponent } from './empty-projects/empty-projects.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: MenuComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupComponent },
   { path: 'new-entry', component: NewEntryComponent, canActivate: [AuthGuard] },
   { path: 'timer', component: TimerComponent, canActivate: [AuthGuard] },
+  {path: 'empty', component: EmptyProjectsComponent},
   {
     path: 'new-project',
     component: NewProjectComponent,

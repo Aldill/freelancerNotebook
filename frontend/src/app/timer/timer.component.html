@@ -1,7 +1,7 @@
 
   <body>
     <mat-toolbar  [ngClass]="[otherStyle]" >
-
+        <button id = "sidenav-toggle"mat-flat-button (click)="sidenav.toggle()" ><mat-icon>menu</mat-icon></button>
 </mat-toolbar>
 <mat-sidenav-container [hasBackdrop]="false" class="image" >
 
@@ -26,8 +26,8 @@
     <div  fxLayoutAlign="center center"  fxFlexFill class="main-div">
         <mat-card  [ngClass]="[cardStyle]" > 
             
-            <a *ngIf="this.isFullscreenExitVisible" (click)="sidenav.toggle()"  (click)="this.isFullscreenVisible = true" (click) = "closeFullscreen()" (click)="this.isFullscreenExitVisible = false"> <mat-icon>fullscreen_exit</mat-icon></a>
-            <a *ngIf="this.isFullscreenVisible" (click)="sidenav.toggle()"  (click)="this.isFullscreenExitVisible = true" (click) = "openFullscreen()"(click)="this.isFullscreenVisible = false"> <mat-icon>fullscreen</mat-icon></a>
+            <a *ngIf="this.isFullscreenExitVisible" (click)="sidenav.open()" id ="fullscreen" (click)="this.isFullscreenVisible = true" (click) = "closeFullscreen()" (click)="this.isFullscreenExitVisible = false"> <mat-icon>fullscreen_exit</mat-icon></a>
+            <a *ngIf="this.isFullscreenVisible" (click)="sidenav.close()" id ="fullscreen" (click)="this.isFullscreenExitVisible = true" (click) = "openFullscreen()"(click)="this.isFullscreenVisible = false"> <mat-icon>fullscreen</mat-icon></a>
             <p  [ngClass]="[timeStyle]">{{hours_zero}}{{hours}}:{{minutes_zero}}{{minutes}}:{{seconds_zero}}{{seconds}}</p> 
             <button mat-flat-button [ngClass]="[navStyle]"(click)='startTimer()'>Start Timer</button>
             <button mat-flat-button [ngClass]="[navStyle]"(click)='pauseTimer()'>Pause</button>
