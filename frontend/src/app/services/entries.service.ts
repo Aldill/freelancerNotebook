@@ -22,21 +22,22 @@ export class EntriesService {
     startDate,
     fee,
     isFlatFee,
+    endDate,
   }: {
     projectId: string;
     description: string;
     startDate: string;
     fee: number;
     isFlatFee: boolean;
+    endDate: string;
   }): Observable<Entry> {
-    const currentDate = new Date();
     return this.httpClient.post<Entry>(this.serviceEndpoint, {
       projectId,
       description,
       startDate,
       fee,
       isFlatFee,
-      endDate: new Date(currentDate.getTime() + 150000 * 60000).toISOString(),
+      endDate,
     });
   }
 

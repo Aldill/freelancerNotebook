@@ -19,6 +19,12 @@ interface EntryDTO {
   endDate: string;
 }
 
+interface EntryTime {
+  hours: string;
+  minutes: string;
+  seconds: string;
+}
+
 @Component({
   selector: 'app-new-entry',
   templateUrl: './new-entry.component.html',
@@ -30,6 +36,8 @@ export class NewEntryComponent implements OnInit {
   projects$: Observable<Project[]>;
 
   timedEntry: boolean;
+
+  entryTime: EntryTime;
 
   entry: EntryDTO;
   selectable = true;
@@ -49,6 +57,7 @@ export class NewEntryComponent implements OnInit {
     this.timedEntry = false;
     this.projects$ = projectsService.projects$;
     this.entry = {} as EntryDTO;
+    this.entryTime = {} as EntryTime;
     if (this.w > 450) {
       this.disableClose = true;
     } else {
@@ -59,8 +68,16 @@ export class NewEntryComponent implements OnInit {
   ngOnInit(): void {}
 
   addStartDate(): void {
-    this.entry.startDate = new Date().toISOString();
+    const startDate = new Date();
+    this.entry.startDate = startDate.toISOString();
     if (!this.timedEntry) {
+      const endDate = startDate.setSeconds(
+        startDate.getSeconds() +
+          parseFloat(this.entryTime.hours) * 3600 +
+          parseFloat(this.entryTime.minutes) * 60 +
+          parseFloat(this.entryTime.seconds)
+      );
+      this.entry.endDate = new Date(endDate).toISOString();
       this.entriesService.saveEntry(this.entry);
     }
   }
