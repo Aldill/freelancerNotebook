@@ -22,17 +22,17 @@ export class ProjectsService {
     return this.httpClient
       .get<StaticResponse<Project>>(this.serviceEndpoint)
       .pipe(
-        tap((data) => {
-          this.projects = data.data;
+        tap(({ data }) => {
+          this.projects = data as Project[];
         }),
-        map((data) => data.data)
+        map(({ data }) => data as Project[])
       );
   }
 
-  getProject(id: string): Observable<Project[]> {
+  getProject(id: string): Observable<Project> {
     return this.httpClient
       .get<StaticResponse<Project>>(`${this.serviceEndpoint}/${id}`)
-      .pipe(map((data) => data.data));
+      .pipe(map(({ data }) => data as Project));
   }
 
   createNewProject(

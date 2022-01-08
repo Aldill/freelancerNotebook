@@ -1,7 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { StaticResponse } from '../models/StaticResponse';
 
+interface User {
+  id: string;
+  createdAt: string;
+  mail: string;
+  password: string;
+  username: string;
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -18,12 +26,13 @@ export class UsersService {
     username: string;
     email: string;
     password: string;
-  }): Observable<any> {
+  }): Observable<StaticResponse<User>> {
     return this.httpClient.post<any>(this.serviceEndpoint, {
       username,
-      email,
+      mail: email,
       password,
       isAdmin: true,
+      createdAt: new Date(),
     });
   }
 }

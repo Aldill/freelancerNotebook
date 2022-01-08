@@ -24,6 +24,6 @@ export class ClientsService {
   }): Observable<string> {
     return this.httpClient
       .post<StaticResponse<Client>>(this.serviceEndpoint, { name, mail, phone })
-      .pipe(map(({ data }) => data[0].id));
+      .pipe(map(({ data }) => (data as Client).id as string));
   }
 }

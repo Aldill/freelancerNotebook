@@ -29,7 +29,7 @@
       <div fxLayoutAlign="center center" fxFlexFill class="main-div">
         <mat-card>
           <mat-accordion>
-            <ng-container *ngIf="projects$ | async as projects">
+            <ng-container *ngIf="projects$ | async as projects; else loading">
               <mat-expansion-panel *ngFor="let project of projects" hideToggle>
                 <mat-expansion-panel-header>
                   <mat-panel-title
@@ -37,7 +37,7 @@
                     {{ project.title }}
                   </mat-panel-title>
                   <mat-panel-description>
-                    Project description
+                    {{ project.description }}
 
                     <button
                       mat-flat-button
@@ -51,6 +51,9 @@
                 <p>{{ project.description }}</p>
               </mat-expansion-panel>
             </ng-container>
+            <ng-template #loading>
+              <mat-panel-title> Loading... </mat-panel-title>
+            </ng-template>
           </mat-accordion>
           <!-- <mat-paginator
           [length]="4"

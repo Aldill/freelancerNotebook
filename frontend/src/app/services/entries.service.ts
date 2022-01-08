@@ -43,6 +43,6 @@ export class EntriesService {
   getEntriesFromProject(id: string): Observable<Entry[]> {
     return this.httpClient
       .get<StaticResponse<Entry>>(`${this.serviceEndpoint}/project/${id}`)
-      .pipe(map((data) => data.data));
+      .pipe(map(({ data }) => data as Entry[]));
   }
 }

@@ -28,7 +28,7 @@ namespace FreelancerNotebook.Controllers
             var userId = userService.getUserId();
             var projects = _projectService.GetbyUser(userId);
 
-            return Ok(new Response<Project>(projects, "success"));
+            return Ok(new Response<List<Project>>(projects, "success"));
         }
             
 
@@ -42,7 +42,7 @@ namespace FreelancerNotebook.Controllers
                 return NotFound();
             }
 
-            return Ok(new Response<Project>(new List<Project> { project}, "success"));
+            return Ok(new Response<Project>(project, "success"));
         }
 
         [HttpPost]
@@ -56,7 +56,7 @@ namespace FreelancerNotebook.Controllers
                 return BadRequest(); 
             }
 
-            return CreatedAtRoute("GetProject", new { id = newProject.Id.ToString() }, new Response<Project>(new List<Project> { newProject }, "success"));
+            return CreatedAtRoute("GetProject", new { id = newProject.Id.ToString() }, new Response<Project>( newProject , "success"));
         }
 
         [HttpPut("{id:length(24)}")]

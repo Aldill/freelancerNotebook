@@ -30,11 +30,8 @@ namespace FreelancerNotebook.Controllers
             {
                 return Unauthorized();
             }
-            var data = new List<string>
-            {
-                token
-            };
-            return Ok(new Response<string>(data, "success"));
+            
+            return Ok(new Response<string>(token, "success"));
         }
 
         [HttpGet, Authorize]
@@ -42,12 +39,8 @@ namespace FreelancerNotebook.Controllers
         {
             var test = _userService.getUserId();
 
-            var data = new List<string>
-            {
-                test
-            };
 
-            return Ok(new Response<string>(data, "success"));
+            return Ok(new Response<string>(test, "success"));
         }
 
 

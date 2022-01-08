@@ -22,7 +22,7 @@ namespace FreelancerNotebook.Controllers
         {
             var clients = _clientService.Get();
 
-            return Ok( new Response<Client>(clients, "success"));
+            return Ok( new Response<List<Client>>(clients, "success"));
         }
             
 
@@ -36,7 +36,7 @@ namespace FreelancerNotebook.Controllers
                 return NotFound();
             }
 
-            return Ok(new Response<Client>(new List<Client> { client }, "success"));
+            return Ok(new Response<Client>(client, "success"));
         }
 
         [HttpPost]
@@ -44,7 +44,7 @@ namespace FreelancerNotebook.Controllers
         {
             var data = _clientService.Create(client);
 
-            return CreatedAtRoute("GetClient", new { id = client.Id.ToString() }, new Response<Client>(new List<Client> { data }, "success"));
+            return CreatedAtRoute("GetClient", new { id = client.Id.ToString() }, new Response<Client>(data, "success"));
         }
 
         [HttpPut("{id:length(24)}")]

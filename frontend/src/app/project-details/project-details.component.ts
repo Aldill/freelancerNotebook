@@ -13,7 +13,7 @@ import { ProjectsService } from '../services/projects.service';
   styleUrls: ['./project-details.component.css'],
 })
 export class ProjectDetailsComponent implements OnInit {
-  project$: Observable<Project[]>;
+  project$: Observable<Project>;
 
   entries$: Observable<Entry[]>;
 
@@ -44,7 +44,7 @@ export class ProjectDetailsComponent implements OnInit {
 
     this.entries$ = this.project$.pipe(
       switchMap((project) =>
-        this.entriesService.getEntriesFromProject(project[0].id)
+        this.entriesService.getEntriesFromProject(project.id)
       )
     );
   }

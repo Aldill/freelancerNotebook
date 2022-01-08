@@ -24,7 +24,7 @@ namespace FreelancerNotebook.Controllers
         {
             var entries = _entryService.GetbyProject(id);
 
-            return Ok(new Response<Entry>(entries, "success"));
+            return Ok(new Response<List<Entry>>(entries, "success"));
 
         }
             
@@ -39,7 +39,7 @@ namespace FreelancerNotebook.Controllers
                 return NotFound();
             }
 
-            return Ok(new Response<Entry>(new List<Entry> { entry}, "success"));
+            return Ok(new Response<Entry>( entry, "success"));
         }
 
         [HttpPost]
@@ -47,7 +47,7 @@ namespace FreelancerNotebook.Controllers
         {
             var data = _entryService.Create(entry);
 
-            return CreatedAtRoute("GetEntry", new { id = entry.Id.ToString() }, new Response<Entry>(new List<Entry> { data }, "success"));
+            return CreatedAtRoute("GetEntry", new { id = entry.Id.ToString() }, new Response<Entry>(data , "success"));
         }
 
         [HttpPut("{id:length(24)}")]

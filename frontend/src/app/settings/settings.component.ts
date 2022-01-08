@@ -1,39 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginService } from '../services/login.service';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css']
+  styleUrls: ['./settings.component.css'],
 })
 export class SettingsComponent implements OnInit {
-
   w = window.innerWidth;
-  disableClose:boolean;
-  constructor(public dialog: MatDialog) { 
+  disableClose: boolean;
+  constructor(public dialog: MatDialog, private loginService: LoginService) {
     if (this.w > 450) {
-      this.disableClose=true;
+      this.disableClose = true;
     } else {
-      this.disableClose=false;
+      this.disableClose = false;
     }
-
   }
 
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   openDialog() {
     this.dialog.open(DialogElementsExampleDialog);
   }
+
+  logout(): void {
+    this.loginService.logout();
+  }
   clickMethod(name: string, action: string) {
+    if (confirm('Are you sure you want to ' + action + ' ' + name)) {
+      if (action == 'permanently delete') {
+        console.log('Implement delete functionality here');
+      }
 
-    if(confirm("Are you sure you want to " + action + " " +name)) {
-
-      if(action=="permanently delete"){
-      console.log("Implement delete functionality here");}
-
-      if(action=="permanently reset all your progress?"){
-        console.log("Implement reset functionality here");}
-  
+      if (action == 'permanently reset all your progress?') {
+        console.log('Implement reset functionality here');
+      }
     }
   }
 }
@@ -43,5 +43,3 @@ export class SettingsComponent implements OnInit {
   templateUrl: '../dialog-elements-example-dialog.html',
 })
 export class DialogElementsExampleDialog {}
-
-   

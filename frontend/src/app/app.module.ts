@@ -44,6 +44,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LoginService } from './services/login.service';
 import { CookieService } from 'ngx-cookie-service';
+import { EntryTimePipe } from './pipes/entry-time.pipe';
 export const customCurrencyMaskConfig = {
   align: 'left',
   allowNegative: true,
@@ -73,6 +74,7 @@ export const customCurrencyMaskConfig = {
     ChangeUsernameComponent,
     EditProjectInfoComponent,
     AccountInfoComponent,
+    EntryTimePipe,
   ],
   imports: [
     BrowserModule,

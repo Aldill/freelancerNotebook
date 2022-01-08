@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 
 interface RegisterData {
@@ -16,7 +17,7 @@ export class SignupComponent implements OnInit {
   user: RegisterData;
   w = window.innerWidth;
   disableClose: boolean;
-  constructor(private usersService: UsersService) {
+  constructor(private usersService: UsersService, private router: Router) {
     this.user = {} as RegisterData;
     if (this.w > 450) {
       this.disableClose = true;
@@ -26,9 +27,11 @@ export class SignupComponent implements OnInit {
   }
 
   registerUser(): void {
-    this.usersService
-      .postUser(this.user)
-      .subscribe((data) => console.log(data));
+    this.usersService.postUser(this.user).subscribe((data) => {
+      if (data.status === 'success') {
+        this.router.navigate(['/']);
+      }
+    });
   }
   ngOnInit(): void {}
 }

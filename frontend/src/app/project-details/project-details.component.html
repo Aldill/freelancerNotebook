@@ -30,11 +30,13 @@
           <mat-accordion *ngIf="project$ | async as project">
             <mat-expansion-panel disabled expanded>
               <mat-expansion-panel-header>
-                <mat-panel-title> Project title </mat-panel-title>
+                <mat-panel-title> {{ project.title }} </mat-panel-title>
                 <mat-panel-description>
-                  Project description
+                  {{ project.description }}
                 </mat-panel-description>
-                <mat-panel-description>Project deadline</mat-panel-description>
+                <mat-panel-description>{{
+                  project.deadline | date
+                }}</mat-panel-description>
 
                 <mat-panel-description>
                   <button
@@ -76,48 +78,20 @@
                 <mat-accordion *ngFor="let entry of entries">
                   <mat-expansion-panel id="entries" hideToggle>
                     <mat-expansion-panel-header>
-                      <mat-panel-title> {{ entry }} </mat-panel-title>
+                      <mat-panel-title>
+                        {{ entry.startDate | date }}
+                      </mat-panel-title>
                       <mat-panel-description>
-                        Entry length
+                        {{ [entry.startDate, entry.endDate] | entryTime }}
                       </mat-panel-description>
                       <mat-panel-description>
-                        Entry price
-                      </mat-panel-description>
-                    </mat-expansion-panel-header>
-                    <p>Entry description</p>
-                  </mat-expansion-panel>
-                  <mat-expansion-panel id="entries" hideToggle>
-                    <mat-expansion-panel-header>
-                      <mat-panel-title> Entry date </mat-panel-title>
-
-                      <mat-panel-description>
-                        Entry length
-                      </mat-panel-description>
-                      <mat-panel-description>
-                        Entry price
+                        {{ entry.fee | currency }}
                       </mat-panel-description>
                     </mat-expansion-panel-header>
-                    <p>Entry description</p>
+                    {{ entry.description }}
                   </mat-expansion-panel>
                 </mat-accordion>
               </ng-container>
-
-              <mat-expansion-panel id="entries" hideToggle>
-                <mat-expansion-panel-header>
-                  <mat-panel-title> Entry date </mat-panel-title>
-                  <mat-panel-description> Entry length </mat-panel-description>
-                  <mat-panel-description> Entry price </mat-panel-description>
-                </mat-expansion-panel-header>
-                <p>Entry description</p>
-              </mat-expansion-panel>
-              <mat-expansion-panel id="entries" hideToggle>
-                <mat-expansion-panel-header>
-                  <mat-panel-title> Entry date </mat-panel-title>
-                  <mat-panel-description> Entry length </mat-panel-description>
-                  <mat-panel-description> Entry price </mat-panel-description>
-                </mat-expansion-panel-header>
-                <p>Entry description</p>
-              </mat-expansion-panel>
             </mat-expansion-panel>
           </mat-accordion>
         </mat-card>
