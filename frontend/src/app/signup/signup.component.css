@@ -15,6 +15,7 @@ body{
 
 .mat-flat-button{
     background-color:#ABD483;
+    margin: 10px;
 }
 
 
@@ -41,6 +42,10 @@ mat-card{
     width: 300px;
 
 
+}
+
+mat-form-field{
+    width: 100%;
 }
 @media only screen and (max-width: 600px) {
     mat-card{

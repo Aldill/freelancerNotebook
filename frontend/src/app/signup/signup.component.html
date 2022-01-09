@@ -2,9 +2,10 @@
 <div class="image">
   <div fxLayoutAlign="center center" fxFlexFill class="main-div">
     <mat-card>
-      <form id="form" fxLayout="column">
+
+       <form fxLayout="column">
         <mat-form-field color="accent">
-          <input
+          <input required  minlength="4" 
             matInput
             name="username"
             [(ngModel)]="user.username"
@@ -12,27 +13,31 @@
         </mat-form-field>
 
         <mat-form-field color="accent">
-          <input
+          <input required  minlength="4" 
             matInput
             [(ngModel)]="user.email"
             name="email"
             type="email"
             placeholder="Email" />
         </mat-form-field>
-
+        <form [formGroup]="myForm">
         <mat-form-field color="accent">
           <input
             matInput
             name="password"
             [(ngModel)]="user.password"
             type="password"
-            placeholder="Password" />
+            placeholder="New password" formControlName="password" required  minlength="4" />
+      
         </mat-form-field>
 
         <mat-form-field color="accent">
-          <input matInput type="password" placeholder="Repeat password" />
+          <input matInput required minlength="4" type="password" placeholder="Confirm password" formControlName="confirmPassword" [errorStateMatcher]="matcher" />
+          <mat-error *ngIf="myForm.hasError('notSame')">
+            Passwords do not match
+          </mat-error>  
         </mat-form-field>
-
+      </form>
         <button
           mat-flat-button
           type="submit"
@@ -42,6 +47,7 @@
         </button>
       </form>
       <a routerLink="">Already a user? Log in!</a>
+
     </mat-card>
   </div>
 </div>
