@@ -1,67 +1,73 @@
-body{
-    overflow: hidden;
+body {
+  overflow: hidden;
 }
-.mat-toolbar{
-    background-color: #799c53;
-    overflow: hidden;
-    height: 1cm;
-}
-
-.mat-sidenav{
-    background-color:#6666CC;
-    width: 4cm;
+.mat-toolbar {
+  background-color: #799c53;
+  overflow: hidden;
+  height: 1cm;
 }
 
-
-.mat-flat-button{
-    background-color: #799c53;
-    color: white;
-
-
-}
-#forward{
-    width: 100%
-
+.one-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-#back{
-    width: 43%;
-    margin: 10px;
-
+.one-row mat-form-field {
+  width: 100px;
 }
 
-.image{ 
-    height:100%;
+.mat-sidenav {
+  background-color: #6666cc;
+  width: 4cm;
+}
 
-    background: url('../../img/girl with laptop.jpg') no-repeat center center fixed ;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  
+.mat-flat-button {
+  background-color: #799c53;
+  color: white;
+}
+#forward {
+  width: 100%;
+}
 
+#back {
+  width: 43%;
+  margin: 10px;
+}
 
+.image {
+  height: 100%;
+
+  background: url("../../img/girl with laptop.jpg") no-repeat center center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 mat-form-field {
-
-    width: 100%;
-    height: 100%;
-  }
-
-  ::ng-deep .mat-horizontal-stepper-header-container {
-    display: none !important;
-  }
-
-mat-card{
-    width: 30%;
-    height: auto;
-    padding: 0px;
-    top:  -18%;
-    right: -30%;
-
+  width: 100%;
+  height: 100%;
 }
+
+::ng-deep .mat-horizontal-stepper-header-container {
+  display: none !important;
+}
+
+mat-card {
+  width: 30%;
+  height: auto;
+  padding: 0px;
+  top: -18%;
+  right: -30%;
+}
+<<<<<<< HEAD
 #time{
     width: 33%;
+=======
+#time {
+  width: 30%;
+>>>>>>> 972354a82bd94880c5bc4b3bb8a09b87818a5dab
 }
 
 input:focus::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -78,70 +84,60 @@ input:focus::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   }
 
 @media only screen and (max-width: 600px) {
-    mat-card{
-        background-color:#6666CC;
-        fill-rule: "90";
-        top:  auto;
-        right: auto;
-    
-    }
-    mat-form-field {
-
+  mat-card {
+    background-color: #6666cc;
+    fill-rule: "90";
+    top: auto;
+    right: auto;
+  }
+  mat-form-field {
     width: 100%;
   }
 
-  #back{
+  #back {
     width: 40%;
-
-}
-
-.image{ 
-    height:100%;}
-
   }
 
-  @media only screen and (max-width: 1025px)and (min-width: 600px) {
-    mat-card{
-        background-color:#6666CC;
-        fill-rule: "100";
-        top:  auto;
-        right: auto;
-    
-    }
-    
-    #back{
-        width: 40%;
+  .image {
+    height: 100%;
+  }
+}
 
-    }
-
-    .image{ 
-        height:100%;}
- 
-    
+@media only screen and (max-width: 1025px) and (min-width: 600px) {
+  mat-card {
+    background-color: #6666cc;
+    fill-rule: "100";
+    top: auto;
+    right: auto;
   }
 
-.example-chip-list{
-    background-color: #799c53;
+  #back {
+    width: 40%;
+  }
+
+  .image {
+    height: 100%;
+  }
 }
-mat-stepper{
-    padding-top: 15px;
-    background-color:#6666CC;
 
-
+.example-chip-list {
+  background-color: #799c53;
 }
-
+mat-stepper {
+  padding-top: 15px;
+  background-color: #6666cc;
+}
 
 ::ng-deep .mat-tooltip {
- font-size: 15px;
- white-space: pre-wrap;
- color: gray !important;
- background-color: rgba(255, 255, 255, .9);
- border:1px solid gray;
- max-width: unset !important;
+  font-size: 15px;
+  white-space: pre-wrap;
+  color: gray !important;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid gray;
+  max-width: unset !important;
 }
 
 .mat-radio-button ~ .mat-radio-button {
-    margin-left: 20px;
-    margin-bottom: 16px;
-    
-  }
+  margin-left: 20px;
+  margin-bottom: 16px;
+}

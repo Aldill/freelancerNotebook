@@ -7,16 +7,10 @@ import { ProjectsService } from '../services/projects.service';
 import { Observable } from 'rxjs';
 import { Project } from '../models/Projects';
 import { EntriesService } from '../services/entries.service';
+import { TimerService } from '../services/timer.service';
+import { EntryDTO } from '../models/EntryDTO';
 export interface Chip {
   name: string;
-}
-interface EntryDTO {
-  projectId: string;
-  description: string;
-  startDate: string;
-  fee: number;
-  isFlatFee: boolean;
-  endDate: string;
 }
 
 interface EntryTime {
@@ -52,7 +46,8 @@ export class NewEntryComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private projectsService: ProjectsService,
-    private entriesService: EntriesService
+    private entriesService: EntriesService,
+    private timerService: TimerService
   ) {
     this.timedEntry = false;
     this.projects$ = projectsService.projects$;
@@ -70,15 +65,18 @@ export class NewEntryComponent implements OnInit {
   addStartDate(): void {
     const startDate = new Date();
     this.entry.startDate = startDate.toISOString();
+    const timeInSeconds =
+      parseFloat(this.entryTime.hours) * 3600 +
+      parseFloat(this.entryTime.minutes) * 60 +
+      parseFloat(this.entryTime.seconds);
     if (!this.timedEntry) {
       const endDate = startDate.setSeconds(
-        startDate.getSeconds() +
-          parseFloat(this.entryTime.hours) * 3600 +
-          parseFloat(this.entryTime.minutes) * 60 +
-          parseFloat(this.entryTime.seconds)
+        startDate.getSeconds() + timeInSeconds
       );
       this.entry.endDate = new Date(endDate).toISOString();
       this.entriesService.saveEntry(this.entry);
+    } else {
+      this.timerService.addEntry(this.entry, timeInSeconds);
     }
   }
 
