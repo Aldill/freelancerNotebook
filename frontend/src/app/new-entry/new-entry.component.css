@@ -61,15 +61,10 @@ mat-card {
   top: -18%;
   right: -30%;
 }
-<<<<<<< HEAD
+
 #time{
     width: 33%;
-=======
-#time {
-  width: 30%;
->>>>>>> 972354a82bd94880c5bc4b3bb8a09b87818a5dab
 }
-
 input:focus::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: transparent !important;
  }

@@ -53,6 +53,7 @@ export class NewEntryComponent implements OnInit {
     this.projects$ = projectsService.projects$;
     this.entry = {} as EntryDTO;
     this.entryTime = {} as EntryTime;
+    
     if (this.w > 450) {
       this.disableClose = true;
     } else {

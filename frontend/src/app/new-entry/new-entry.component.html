@@ -37,7 +37,7 @@
               <mat-form-field color="accent">
                 <mat-select
                   [(ngModel)]="entry.projectId"
-                  placeholder="Select project">
+                  placeholder="Select project" required>
                   <ng-container *ngIf="projects$ | async as projects">
                     <mat-option
                       *ngFor="let project of projects"
@@ -54,55 +54,37 @@
                   [(ngModel)]="entry.description"
                   placeholder="Provide short entry description"
                   cdkTextareaAutosize
-                  cdkAutosizeMinRows="4" required  minlength="4"></textarea>
+                  cdkAutosizeMinRows="4" required></textarea>
               </mat-form-field>
 
               <p>How long will be your new entry?</p>
-<<<<<<< HEAD
-              <mat-form-field id = "time" flcolor="accent"  [floatLabel]="'never'">
+              <mat-form-field default='0' id = "time" flcolor="accent"  [floatLabel]="'never'">
                 <input
                   id="time"
                   matInput
                   [(ngModel)]="entryTime.hours"
                   type="number"
                   min="0"
+                  ng-show="!showForm"
                   max="23"
-      placeholder="00"
-
-                  [value]="0" required  minlength="4"/>
+              placeholder="00"
+required
+                  [value]="0"/>
                   <label>h</label>
                   </mat-form-field>
-                  <mat-form-field  [floatLabel]="'never'" id = "time" flcolor="accent">            <input
-=======
-              <div class="one-row">
-                <mat-form-field appearance="fill">
-                  <mat-label>Hours</mat-label>
-                  <input
-                    id="time"
-                    matInput
-                    [(ngModel)]="entryTime.hours"
-                    type="number"
-                    min="0"
-                    max="23"
-                    ng-show="!showForm"
-                    [value]="0" />
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                  <mat-label>Minutes</mat-label>
-                  <input
->>>>>>> 972354a82bd94880c5bc4b3bb8a09b87818a5dab
+                  <mat-form-field value='0'  [floatLabel]="'never'" id = "time" flcolor="accent">            <input
                     id="time"
                     matInput
                     [(ngModel)]="entryTime.minutes"
                     type="number"
                     min="0"
                     max="59"
-<<<<<<< HEAD
                     placeholder="00"
+                    required
                     ng-show="!showForm"
-                    [value]="0" required  minlength="4"/> <label>m</label></mat-form-field>
+                    [value]="0" /> <label>m</label></mat-form-field>
     
-               <mat-form-field  [floatLabel]="'never'" id = "time" flcolor="accent">
+               <mat-form-field  value='0' [floatLabel]="'never'" id = "time" flcolor="accent">
                 <input
                 id="time"
                 matInput
@@ -112,27 +94,10 @@
                 max="59"
                 placeholder="00"
                 ng-show="!showForm"
-                [value]="0" required  minlength="4"/>
+                required
+                [value]="0"/>
                 <label>s</label>
               </mat-form-field>
-=======
-                    ng-show="!showForm"
-                    [value]="0" />
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                  <mat-label>Seconds</mat-label>
-                  <input
-                    id="time"
-                    matInput
-                    [(ngModel)]="entryTime.seconds"
-                    type="number"
-                    min="0"
-                    max="59"
-                    ng-show="!showForm"
-                    [value]="0" />
-                </mat-form-field>
-              </div>
->>>>>>> 972354a82bd94880c5bc4b3bb8a09b87818a5dab
 
               <section class="example-section">
                 <label class="example-margin"></label>
