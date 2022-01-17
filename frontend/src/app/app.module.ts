@@ -46,6 +46,7 @@ import { LoginService } from './services/login.service';
 import { CookieService } from 'ngx-cookie-service';
 import { EntryTimePipe } from './pipes/entry-time.pipe';
 import { EmptyProjectsComponent } from './empty-projects/empty-projects.component';
+import { TimerPipe } from './pipes/timer.pipe';
 export const customCurrencyMaskConfig = {
   align: 'left',
   allowNegative: true,
@@ -77,6 +78,7 @@ export const customCurrencyMaskConfig = {
     AccountInfoComponent,
     EntryTimePipe,
     EmptyProjectsComponent,
+    TimerPipe,
   ],
   imports: [
     BrowserModule,

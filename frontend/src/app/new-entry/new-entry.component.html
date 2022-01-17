@@ -58,35 +58,44 @@
               </mat-form-field>
 
               <p>How long will be your new entry?</p>
-              <mat-form-field flcolor="accent">
-                <input
-                  id="time"
-                  matInput
-                  [(ngModel)]="entryTime.hours"
-                  type="number"
-                  min="0"
-                  max="23"
-                  ng-show="!showForm"
-                  [value]="0" />
-                <input
-                  id="time"
-                  matInput
-                  [(ngModel)]="entryTime.minutes"
-                  type="number"
-                  min="0"
-                  max="59"
-                  ng-show="!showForm"
-                  [value]="0" />
-                <input
-                  id="time"
-                  matInput
-                  [(ngModel)]="entryTime.seconds"
-                  type="number"
-                  min="0"
-                  max="59"
-                  ng-show="!showForm"
-                  [value]="0" />
-              </mat-form-field>
+              <div class="one-row">
+                <mat-form-field appearance="fill">
+                  <mat-label>Hours</mat-label>
+                  <input
+                    id="time"
+                    matInput
+                    [(ngModel)]="entryTime.hours"
+                    type="number"
+                    min="0"
+                    max="23"
+                    ng-show="!showForm"
+                    [value]="0" />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Minutes</mat-label>
+                  <input
+                    id="time"
+                    matInput
+                    [(ngModel)]="entryTime.minutes"
+                    type="number"
+                    min="0"
+                    max="59"
+                    ng-show="!showForm"
+                    [value]="0" />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Seconds</mat-label>
+                  <input
+                    id="time"
+                    matInput
+                    [(ngModel)]="entryTime.seconds"
+                    type="number"
+                    min="0"
+                    max="59"
+                    ng-show="!showForm"
+                    [value]="0" />
+                </mat-form-field>
+              </div>
 
               <section class="example-section">
                 <label class="example-margin"></label>

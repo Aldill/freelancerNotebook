@@ -1,23 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
+import { TimerService } from '../services/timer.service';
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
-  styleUrls: ['./timer.component.css']
+  styleUrls: ['./timer.component.css'],
 })
 export class TimerComponent implements OnInit {
-  
+  time: Observable<number>;
   w = window.innerWidth;
-  disableClose:boolean;
-  constructor(public dialog: MatDialog) { 
-    if (this.w > 450) {
-      this.disableClose=true;
-    } else {
-      this.disableClose=false;
-    }
+  disableClose: boolean;
+  constructor(public dialog: MatDialog, private timerService: TimerService) {
+    this.time = this.timerService.timeLeft$;
 
+    if (this.w > 450) {
+      this.disableClose = true;
+    } else {
+      this.disableClose = false;
+    }
   }
-  
+
   seconds: number = 0;
   seconds_zero: any = 0;
   minutes_zero: any = 0;
@@ -33,80 +36,51 @@ export class TimerComponent implements OnInit {
   otherStyle = 'other-default';
   isFullscreenVisible = true;
   isFullscreenExitVisible = false;
-  
+
   ngOnInit(): void {
     this.elem = document.documentElement;
   }
 
-
   startTimer() {
-    this.interval = setInterval(() => {
-
-      
-      if(this.seconds > 0) {
-        this.seconds--;
-      } else if (this.minutes > 0) {
-        this.minutes --;
-        this.seconds = 59;
-      }
-      else  if (this.hours > 0) {
-        this.hours --;
-        this.minutes = 59;
-      }
-      if(this.seconds >= 10){
-        this.seconds_zero = ""
-      }else{
-        this.seconds_zero = 0
-      }
-      if(this.minutes >= 10){
-        this.minutes_zero = ""
-      }else{
-        this.minutes_zero = 0
-      }
-      if(this.hours >= 10){
-        this.hours_zero = ""
-      }else{
-        this.hours_zero = 0
-      }
-    },1000)
+    this.timerService.startTimer();
   }
 
   pauseTimer() {
-    clearInterval(this.interval);
+    this.timerService.stopTimer();
   }
 
   /* Close fullscreen */
-closeFullscreen() {
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  }
-  if(this.cardStyle == 'btn-change') {
-    this.cardStyle = 'btn-default';
-  } else {
-    this.cardStyle = 'btn-change';
+  closeFullscreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+    if (this.cardStyle == 'btn-change') {
+      this.cardStyle = 'btn-default';
+    } else {
+      this.cardStyle = 'btn-change';
+    }
+
+    if (this.otherStyle == 'other-change') {
+      this.otherStyle = 'other-default';
+    } else {
+      this.otherStyle = 'other-change';
+    }
+    if (this.timeStyle == 'time-change') {
+      this.timeStyle = 'time-default';
+    } else {
+      this.timeStyle = 'time-change';
+    }
+    if (this.navStyle == 'nav-change') {
+      this.navStyle = 'nav-default';
+    } else {
+      this.navStyle = 'nav-change';
+    }
   }
 
-  if(this.otherStyle == 'other-change') {
-    this.otherStyle = 'other-default';
-  } else {
-    this.otherStyle = 'other-change';
+  saveEntry(): void {
+    this.timerService.saveEntry();
   }
-  if(this.timeStyle == 'time-change') {
-    this.timeStyle = 'time-default';
-  } else {
-    this.timeStyle = 'time-change';
-  }
-  if(this.navStyle == 'nav-change') {
-    this.navStyle = 'nav-default';
-  } else {
-    this.navStyle = 'nav-change';
-  }
-
-  
-}
   openFullscreen() {
-
-    
     if (this.elem.requestFullscreen) {
       this.elem.requestFullscreen();
     } else if (this.elem.mozRequestFullScreen) {
@@ -120,33 +94,32 @@ closeFullscreen() {
       this.elem.msRequestFullscreen();
     }
 
-    if(this.cardStyle == 'btn-change') {
+    if (this.cardStyle == 'btn-change') {
       this.cardStyle = 'btn-default';
     } else {
       this.cardStyle = 'btn-change';
     }
 
-    if(this.otherStyle == 'other-change') {
+    if (this.otherStyle == 'other-change') {
       this.otherStyle = 'other-default';
     } else {
       this.otherStyle = 'other-change';
     }
-    if(this.timeStyle == 'time-change') {
+    if (this.timeStyle == 'time-change') {
       this.timeStyle = 'time-default';
     } else {
       this.timeStyle = 'time-change';
     }
-    if(this.navStyle == 'nav-change') {
+    if (this.navStyle == 'nav-change') {
       this.navStyle = 'nav-default';
     } else {
       this.navStyle = 'nav-change';
     }
-  } 
-  
+  }
+
   openDialog() {
     this.dialog.open(DialogElementsExampleDialog);
   }
-
 }
 
 @Component({
@@ -154,5 +127,3 @@ closeFullscreen() {
   templateUrl: '../dialog-elements-example-dialog.html',
 })
 export class DialogElementsExampleDialog {}
-
-   
