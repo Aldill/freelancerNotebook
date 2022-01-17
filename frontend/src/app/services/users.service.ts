@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map, mapTo } from 'rxjs/operators';
 import { StaticResponse } from '../models/StaticResponse';
 import { User } from '../models/User';
+import { UserDetailsDTO } from '../models/UserDetailsDTO';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,12 @@ export class UsersService {
     return this.httpClient
       .get<StaticResponse<User>>(this.serviceEndpoint)
       .pipe(map((response) => response.data as User));
+  }
+
+  getUserDetails(): Observable<StaticResponse<UserDetailsDTO>> {
+    return this.httpClient.get<StaticResponse<UserDetailsDTO>>(
+      `${this.serviceEndpoint}/details`
+    );
   }
 
   updateUserData(id: string, user: User): Observable<boolean> {

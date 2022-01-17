@@ -1,5 +1,7 @@
 using FreelancerNotebook.Models;
 using FreelancerNotebook.Services;
+using FreelancerNotebook.Services.EntryService;
+using FreelancerNotebook.Services.ProjectService;
 using FreelancerNotebook.Services.UserService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +16,14 @@ namespace FreelancerNotebook.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IProjectService projectService;
+        private readonly IEntryService entriesService;
 
-        public UsersController(IUserService userService)
+        public UsersController(IUserService userService, IProjectService projectService, IEntryService entriesService)
         {
             _userService = userService;
+            this.projectService = projectService;
+            this.entriesService = entriesService;
         }
 
         
@@ -37,9 +43,11 @@ namespace FreelancerNotebook.Controllers
         }
 
         [HttpGet("details")]
-        public ActionResult<User> GetSummary()
+        public ActionResult<UserDetails> GetSummary()
         {
             var userId = _userService.getUserId();
+            var amountProjects = projectService.GetbyUser(userId).Count();
+            int totalHours = (int)projectService.GetbyUser(userId).Sum(project => entriesService.GetbyProject(project.Id).Sum(entry => (entry.EndDate - entry.StartDate).TotalHours));
             var user = _userService.Get(userId);
 
             if (user == null)
@@ -47,7 +55,13 @@ namespace FreelancerNotebook.Controllers
                 return NotFound();
             }
 
-            return Ok(new Response<User>(user, "success"));
+            return Ok(new Response<UserDetails>(new UserDetails 
+            { 
+                AmountProjects = amountProjects, 
+                CreatedDate = user.CreatedAt,
+                TotalHours = totalHours, 
+                Username = user.Username 
+            }, "success"));
         }
 
         [HttpPatch("password")]
