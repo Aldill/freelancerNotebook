@@ -54,11 +54,11 @@
                   [(ngModel)]="entry.description"
                   placeholder="Provide short entry description"
                   cdkTextareaAutosize
-                  cdkAutosizeMinRows="4"></textarea>
+                  cdkAutosizeMinRows="4" required  minlength="4"></textarea>
               </mat-form-field>
 
               <p>How long will be your new entry?</p>
-              <mat-form-field flcolor="accent">
+              <mat-form-field id = "time" flcolor="accent"  [floatLabel]="'never'">
                 <input
                   id="time"
                   matInput
@@ -66,26 +66,34 @@
                   type="number"
                   min="0"
                   max="23"
-                  ng-show="!showForm"
-                  [value]="0" />
+      placeholder="00"
+
+                  [value]="0" required  minlength="4"/>
+                  <label>h</label>
+                  </mat-form-field>
+                  <mat-form-field  [floatLabel]="'never'" id = "time" flcolor="accent">            <input
+                    id="time"
+                    matInput
+                    [(ngModel)]="entryTime.minutes"
+                    type="number"
+                    min="0"
+                    max="59"
+                    placeholder="00"
+                    ng-show="!showForm"
+                    [value]="0" required  minlength="4"/> <label>m</label></mat-form-field>
+    
+               <mat-form-field  [floatLabel]="'never'" id = "time" flcolor="accent">
                 <input
-                  id="time"
-                  matInput
-                  [(ngModel)]="entryTime.minutes"
-                  type="number"
-                  min="0"
-                  max="59"
-                  ng-show="!showForm"
-                  [value]="0" />
-                <input
-                  id="time"
-                  matInput
-                  [(ngModel)]="entryTime.seconds"
-                  type="number"
-                  min="0"
-                  max="59"
-                  ng-show="!showForm"
-                  [value]="0" />
+                id="time"
+                matInput
+                [(ngModel)]="entryTime.seconds"
+                type="number"
+                min="0"
+                max="59"
+                placeholder="00"
+                ng-show="!showForm"
+                [value]="0" required  minlength="4"/>
+                <label>s</label>
               </mat-form-field>
 
               <section class="example-section">
@@ -140,10 +148,9 @@
                   matInput
                   [(ngModel)]="entry.fee"
                   currencyMask
-                  value=""
-                  placeholder="Fee" />
+                  value="0"
+                  placeholder="Fee" required  minlength="0" />
               </mat-form-field>
-              {{ entry | json }}
               <mat-form-field>
                 <mat-chip-list #chipList>
                   <mat-chip

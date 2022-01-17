@@ -130,7 +130,7 @@ mat-card{
   mat-card{
     width:95%;
       top:  0px;
-      right: 0px;
+      left: 4%;
   
   }
   .mat-expansion-panel{   

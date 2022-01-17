@@ -41,7 +41,7 @@ body{
 }
 .mat-expansion-panel{   
     background-color:#6666CC;
-    width: 28cm;
+    width: 95%;
     padding: 0px;
     margin: 10px;
     
@@ -50,7 +50,7 @@ body{
 }
 
   .edit{
-    right: -350px;
+    right: -40%;
     background-color: #799c53; 
 
   }
@@ -64,7 +64,7 @@ body{
   }
 
 mat-card{
-    width: 29cm;
+    width: 80%;
     height: 80%;
     background-color: transparent;
     padding: 0px;
@@ -81,9 +81,13 @@ height: 50px;
 
     }
   mat-card{
-      width:90%;
-      top:  0px;
-      right: 0px;
+    width: 100%;
+    height: 80%;
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+left: 0px;
+  
   
   }
   .mat-expansion-panel{   
@@ -93,10 +97,6 @@ height: 50px;
     margin: 10px;
 
 }
-mat-paginator{
-height: 1cm;
-}
-
 
 .edit{
   width: 0px;
@@ -109,27 +109,23 @@ height: 1cm;
 
 @media only screen and (max-width: 1025px)  and (min-width: 600px) {
   mat-card{
-    width:95%;
-      top:  0px;
-      right: 0px;
+    width: 90%;
+    height: 80%;
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+    left: 20px;
   
   }
   .mat-expansion-panel{   
     background-color:#6666CC;
     width: 90%;
-    padding: 10px;
-    margin: 10px;
+    padding: 5px;
+    margin: 5px;
 
 }
-mat-paginator{
-  height: 1cm;
-  }
-  .edit{
-    width: 100px;
-    right: -90px;
 
-  
-  }
+
   .image{ 
     height:100%;}
 

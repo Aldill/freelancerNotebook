@@ -12,6 +12,7 @@ body{
     background-color:#6666CC;
     width: 4cm;
 
+
 }
 
 
@@ -25,6 +26,7 @@ body{
 
 .image{ 
     height:100%;
+
     background-color:hsl(240, 50%, 60%);
    background: url('../../img/girl with laptop.jpg') no-repeat center center fixed ;
     -webkit-background-size: cover;
@@ -60,7 +62,7 @@ margin : 0cm;
   }
   
   .btn-change {
- 
+    overflow: hidden;
     background: url('../../img/4009727.jpg') no-repeat center center fixed ;
     top:  0px;
     right: 0px;
@@ -69,6 +71,7 @@ margin : 0cm;
 
   } 
   #fullscreen{
+
     visibility:visible;
     
     }
@@ -125,7 +128,7 @@ margin : 0cm;
       
       }
     .image{ 
-      height:93.8%;
+
       background-color:hsl(240, 50%, 60%);
       background: url('../../img/4009727.jpg') no-repeat center center fixed ;
       -webkit-background-size: cover;

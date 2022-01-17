@@ -37,7 +37,7 @@
                     placeholder="Project title"
                     cdkTextareaAutosize
                     cdkAutosizeMinRows="1"
-                    cdkAutosizeMaxRows="1">
+                    cdkAutosizeMaxRows="1" required  minlength="4">
                   </textarea>
                 </mat-panel-title>
                 <mat-panel-description>
@@ -53,7 +53,7 @@
                     mat-flat-button
                     type="submit"
                     class="edit"
-                    (click)="updateProjectData(project.id)">
+                    (click)="updateProjectData(project.id)"required  minlength="4">
                     <mat-icon>save</mat-icon>
                   </button>
                 </mat-panel-description>

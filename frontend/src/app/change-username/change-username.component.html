@@ -35,7 +35,7 @@
                 name="password"
                 type="password"
                 [(ngModel)]="userNew.password"
-                placeholder="Current password" />
+                placeholder="Current password" required  minlength="4"/>
             </mat-form-field>
 
             <mat-form-field color="accent">
@@ -44,7 +44,7 @@
                 name="username"
                 [(ngModel)]="userNew.username"
                 type="text"
-                placeholder="New username" />
+                placeholder="New username"  required  minlength="4"/>
             </mat-form-field>
 
             <button

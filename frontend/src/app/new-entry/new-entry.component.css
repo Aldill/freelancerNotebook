@@ -61,8 +61,22 @@ mat-card{
 
 }
 #time{
-    width: 30%;
+    width: 33%;
 }
+
+input:focus::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: transparent !important;
+ }
+ input:focus::-moz-placeholder { /* Firefox 19+ */
+   color: transparent !important;
+ }
+ input:focus:-ms-input-placeholder { /* IE 10+ */
+   color: transparent !important;
+ }
+ input:focus:-moz-placeholder { /* Firefox 18- */
+   color: transparent !important;
+  }
+
 @media only screen and (max-width: 600px) {
     mat-card{
         background-color:#6666CC;
