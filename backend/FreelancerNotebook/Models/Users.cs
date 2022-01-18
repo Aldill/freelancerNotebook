@@ -37,4 +37,16 @@ namespace FreelancerNotebook.Models
         public string New { get; set; } = string.Empty;
     }
 
+    public class UserDetails
+    {
+        [BsonElement("Username")]
+        public string Username { get; set; } = string.Empty;
+        [BsonElement("CreatedDate")]
+        public DateTime CreatedDate { get; set; }
+        [BsonElement("AmountProjects")]
+        public int AmountProjects { get; set; }
+        [BsonElement("TotalHours")]
+        public int TotalHours { get; set; }
+    }
+
 }
