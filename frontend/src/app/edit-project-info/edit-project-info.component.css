@@ -52,6 +52,7 @@ body{
   .edit{
     right: -40%;
     background-color: #799c53; 
+    right: -60%;
 
   }
   textarea{
@@ -99,8 +100,7 @@ left: 0px;
 }
 
 .edit{
-  width: 0px;
-  right: -15px;
+visibility: hidden;
     
     }
     .image{ 

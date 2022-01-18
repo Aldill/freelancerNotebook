@@ -28,9 +28,12 @@
       <div fxLayoutAlign="center center" fxFlexFill class="main-div">
         <mat-card>
           <mat-accordion *ngIf="project$ | async as project">
+            
             <mat-expansion-panel disabled expanded>
               <mat-expansion-panel-header>
+            
                 <mat-panel-title>
+                  
                   <textarea
                     matInput
                     [(ngModel)]="projectChangedValues.title"
@@ -39,8 +42,17 @@
                     cdkAutosizeMinRows="1"
                     cdkAutosizeMaxRows="1" required  minlength="4">
                   </textarea>
+                  
                 </mat-panel-title>
+               
                 <mat-panel-description>
+                  
+                  <button
+                    mat-flat-button
+                    class="edit"
+                    (click)="updateProjectData(project.id)">
+                    <mat-icon>save</mat-icon>
+                  </button>
                   <textarea
                     matInput
                     [(ngModel)]="projectChangedValues.description"
@@ -49,13 +61,6 @@
                     cdkAutosizeMinRows="1"
                     cdkAutosizeMaxRows="1"></textarea>
 
-                  <button
-                    mat-flat-button
-                    type="submit"
-                    class="edit"
-                    (click)="updateProjectData(project.id)"required  minlength="4">
-                    <mat-icon>save</mat-icon>
-                  </button>
                 </mat-panel-description>
               </mat-expansion-panel-header>
             </mat-expansion-panel>
