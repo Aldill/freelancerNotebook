@@ -1,5 +1,6 @@
 using FreelancerNotebook.Models;
 using FreelancerNotebook.Services;
+using FreelancerNotebook.Services.EntryService;
 using FreelancerNotebook.Services.ProjectService;
 using FreelancerNotebook.Services.UserService;
 using Microsoft.AspNetCore.Authorization;
@@ -15,11 +16,13 @@ namespace FreelancerNotebook.Controllers
     {
         private readonly IProjectService _projectService;
         private readonly IUserService userService;
+        private readonly IEntryService entriesService;
 
-        public ProjectsController(IProjectService projectService, IUserService userService)
+        public ProjectsController(IProjectService projectService, IUserService userService, IEntryService entriesService)
         {
             _projectService = projectService;
             this.userService = userService;
+            this.entriesService = entriesService;
         }
 
         [HttpGet]
@@ -32,7 +35,7 @@ namespace FreelancerNotebook.Controllers
         }
             
 
-        [HttpGet("{id:length(24)}", Name = "GetProject")]
+        [HttpGet("{id:length(24)}")]
         public ActionResult<Project> Get(string id)
         {
             var project = _projectService.Get(id);
@@ -43,6 +46,41 @@ namespace FreelancerNotebook.Controllers
             }
 
             return Ok(new Response<Project>(project, "success"));
+        }
+
+        [HttpGet("{id:length(24)}/details")]
+        public ActionResult<Project> GetDetails(string id)
+        {
+            var project = _projectService.Get(id);
+
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            var entries = entriesService.GetbyProject(project.Id);
+
+            if(entries == null)
+            {
+                return NotFound();
+            }
+
+            var totalMinutes = (int)entries.Sum(entry =>
+            {
+                return (entry.EndDate - entry.StartDate).TotalMinutes;
+            });
+
+            double totalEarned = entries.Sum(entry =>
+            {
+                if (entry.IsFlatFee)
+                {
+                    return entry.Fee;
+                }
+                return (entry.EndDate - entry.StartDate).TotalHours * entry.Fee;
+            });
+
+
+            return Ok(new Response<ProjectDetails>(new ProjectDetails {Title = project.Title, TotalEarned = totalEarned, TotalMinutes = totalMinutes }, "success"));
         }
 
         [HttpPost]

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { EMPTY, Observable, Subject } from 'rxjs';
 import { delay, shareReplay, switchMap, tap } from 'rxjs/operators';
 import { Entry } from '../models/Entry';
+import { ProjectDetails } from '../models/ProjectDetails';
 import { Project } from '../models/Projects';
 import { EntriesService } from '../services/entries.service';
 import { ProjectsService } from '../services/projects.service';
@@ -15,6 +16,7 @@ import { ProjectsService } from '../services/projects.service';
 export class ProjectDetailsComponent implements OnInit {
   project$: Observable<Project>;
 
+  projectId: string;
   entries$: Observable<Entry[]>;
 
   w = window.innerWidth;
@@ -30,10 +32,12 @@ export class ProjectDetailsComponent implements OnInit {
     } else {
       this.disableClose = false;
     }
+    this.projectId = '';
 
     this.project$ = activatedRoute.paramMap.pipe(
       switchMap((params) => {
         const id = params.get('id');
+        this.projectId = id as string;
         if (id === null) {
           return EMPTY;
         }
@@ -63,7 +67,7 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   openSummary() {
-    this.dialog.open(Summary);
+    this.dialog.open(Summary, { data: this.projectId });
   }
 }
 
@@ -77,4 +81,13 @@ export class DialogElementsExampleDialog {}
   selector: 'summary',
   templateUrl: '../summary.html',
 })
-export class Summary {}
+export class Summary {
+  data$: Observable<ProjectDetails>;
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public projectId: string,
+    private projectService: ProjectsService
+  ) {
+    this.data$ = this.projectService.getProjectDetails(projectId);
+    console.log(projectId);
+  }
+}

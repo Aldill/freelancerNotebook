@@ -68,12 +68,8 @@
                       (click)="clickMethod('projectname', 'delete')">
                       Delete project
                     </button>
-                    <button
-                      mat-menu-item
-                      (click)="clickMethod('projectname', 'complete')"
-                      routerLink="/home"
-                      (click)="openSummary()">
-                      Mark project as complete
+                    <button mat-menu-item (click)="openSummary()">
+                      Show summary
                     </button>
                   </mat-menu>
                 </mat-panel-description>

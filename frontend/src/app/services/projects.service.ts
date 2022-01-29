@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Project } from '../models/Projects';
 import { map, mapTo, tap } from 'rxjs/operators';
 import { StaticResponse } from '../models/StaticResponse';
+import { ProjectDetails } from '../models/ProjectDetails';
 
 @Injectable({
   providedIn: 'root',
@@ -33,6 +34,14 @@ export class ProjectsService {
     return this.httpClient
       .get<StaticResponse<Project>>(`${this.serviceEndpoint}/${id}`)
       .pipe(map(({ data }) => data as Project));
+  }
+
+  getProjectDetails(id: string): Observable<ProjectDetails> {
+    return this.httpClient
+      .get<StaticResponse<ProjectDetails>>(
+        `${this.serviceEndpoint}/${id}/details`
+      )
+      .pipe(map(({ data }) => data as ProjectDetails));
   }
 
   updateProject(

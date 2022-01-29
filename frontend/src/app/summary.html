@@ -1,9 +1,8 @@
-<div mat-dialog-header>Congratulations! 🎉 </div>
-
-    <div mat-dialog-content>You've completed project projectname!</div>
-    <div mat-dialog-content>You've worked on it for 520 minutes</div>
-    <div mat-dialog-content>Earning a total of $555</div>
-    <div mat-dialog-content>Great job! 🍾</div>
-    
- 
-
+<ng-container *ngIf="data$ | async as data">
+  <div mat-dialog-header>Congratulations! 🎉</div>
+  <div mat-dialog-content>
+    <p>You've worked on {{data.title}} for {{data.totalMinutes}} minutes</p>
+    <p>Earning a total of {{data.totalEarned | currency }}</p>
+    <p>Great job! 🍾</p>
+  </div>
+</ng-container>
