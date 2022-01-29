@@ -81,7 +81,7 @@ namespace FreelancerNotebook.Controllers
             return NoContent();
         }
 
-        [HttpPost, AllowAnonymous]
+        [HttpPost(Name = "GetUser"), AllowAnonymous]
         public ActionResult<User> Create(User user)
         {
            var checkuser = _userService.GetbyUsername(user.Username);
